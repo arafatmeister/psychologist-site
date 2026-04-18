@@ -1,0 +1,270 @@
+{
+  "header": {
+    "role": "Existential Psychologist",
+    "nav": {
+      "services": "Services",
+      "faq": "FAQ",
+      "contact": "Contact",
+      "blog": "Blog"
+    },
+    "cta": {
+      "book": "Book session",
+      "telegram": "Telegram"
+    }
+  },
+  "hero": {
+    "kicker": "Online consultations • UA / EN",
+    "kickerMeta": "Confidential • Reply within 24 hours",
+    "title": "I help you move through crises, regain meaning, and reconnect with yourself.",
+    "subtitle": "Individual counseling, couples work, adolescent support, and psychedelic integration.",
+    "cta": {
+      "book": "Book session",
+      "free": "Free first contact"
+    },
+    "note": "15 minutes to clarify your request and choose the right format.",
+    "photoAlt": "Psychologist Yaroslav Doroshenko"
+  },
+  "sections": {
+    "helpWith": {
+      "title": "How I can help",
+      "items": [
+        "Anxiety, loss of meaning, life crises",
+        "Relationships, conflicts, emotional distance",
+        "Support for adolescents and parents",
+        "Integration of deep experiences"
+      ]
+    },
+    "services": {
+      "title": "Services",
+      "subtitle": "The format is tailored to your request and life context.",
+      "items": [
+        {
+          "title": "Individual counseling",
+          "desc": "Deep work with inner struggles, anxiety, and life direction."
+        },
+        {
+          "title": "Couples counseling",
+          "desc": "Restoring dialogue, clarity, and mutual respect in relationships."
+        },
+        {
+          "title": "Adolescent counseling",
+          "desc": "Support during identity development, boundaries, and conflict."
+        },
+        {
+          "title": "Psychedelic integration",
+          "desc": "Making sense of intense experiences and integrating insights into daily life."
+        }
+      ]
+    },
+    "trust": {
+      "title": "Why clients trust me",
+      "subtitle": "Respect for your story, confidentiality, and focus on real change.",
+      "items": [
+        "A safe, non-judgmental space",
+        "Depth instead of generic advice",
+        "Clear structure and transparent process",
+        "Session-between support by agreement"
+      ]
+    },
+    "cta": {
+      "title": "Start your change today",
+      "subtitle": "A confidential space for meaningful conversation. Online sessions in UA / EN."
+    },
+    "blog": {
+      "title": "Blog",
+      "subtitle": "Articles to help you understand yourself and your processes.",
+      "items": [
+        {
+          "slug": "sense-in-crisis",
+          "title": "Finding meaning in crisis",
+          "excerpt": "Practical orientation points when old foundations no longer work."
+        },
+        {
+          "slug": "what-anxiety-says",
+          "title": "What anxiety is really saying",
+          "excerpt": "How to read persistent tension and respond more effectively."
+        },
+        {
+          "slug": "after-deep-experience",
+          "title": "After an intense experience: what next?",
+          "excerpt": "Integration steps without losing contact with everyday reality."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "question": "How long is one session?",
+          "answer": "A standard session lasts 50 minutes. Extended format is available by request."
+        },
+        {
+          "question": "How are sessions held?",
+          "answer": "Mostly online (Google Meet/Zoom/Telegram). The format is agreed before the first session."
+        },
+        {
+          "question": "Do you work in English?",
+          "answer": "Yes, sessions are available in Ukrainian and English."
+        },
+        {
+          "question": "How quickly do you reply?",
+          "answer": "Usually within 24 hours on business days."
+        },
+        {
+          "question": "Are sessions confidential?",
+          "answer": "Yes. Your information remains confidential within legal and ethical boundaries."
+        },
+        {
+          "question": "Can I cancel a session?",
+          "answer": "Yes, cancellation is possible in advance. The policy is clarified during scheduling."
+        }
+      ]
+    }
+  },
+  "form": {
+    "title": "Send a request",
+    "name": "Your name",
+    "contact": "Email or Telegram",
+    "message": "Briefly describe your request",
+    "consent": "I agree to personal data processing",
+    "privacyLink": "Privacy policy",
+    "submit": "Send request",
+    "status": {
+      "pending": "Sending...",
+      "success": "Everything is okay: your request was accepted, but the data was not saved yet (demo mode).",
+      "error": "Could not send your request. Please try again."
+    },
+    "errors": {
+      "required": "This field is required",
+      "nameShort": "Name must be at least 2 characters",
+      "nameLong": "Name must be at most 60 characters",
+      "contactInvalid": "Enter a valid email or Telegram username",
+      "messageShort": "Message must be at least 10 characters",
+      "messageLong": "Message must be at most 2000 characters",
+      "consentRequired": "Consent is required",
+      "honeypot": "Anti-spam validation failed",
+      "rateLimited": "Please try again later",
+      "turnstileRequired": "Please verify you are not a robot"
+    }
+  },
+  "footer": {
+    "copyright": "© {{year}} {{name}}. Online sessions Worldwide. Confidential.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "description": "How personal data is processed when you contact us through the site.",
+    "updatedAt": "Updated: April 18, 2026",
+    "sections": [
+      {
+        "title": "What data is collected",
+        "content": "We only collect the data you voluntarily submit in the form: name, contact (email or Telegram), and message text."
+      },
+      {
+        "title": "Purpose of processing",
+        "content": "Data is used solely to respond to your request, schedule consultations, and continue communication initiated by you."
+      },
+      {
+        "title": "Legal basis",
+        "content": "Processing is based on your consent under Article 6(1)(a) GDPR and applicable Ukrainian personal data law."
+      },
+      {
+        "title": "Retention period",
+        "content": "Data is retained for as long as needed to process your request or until consent is withdrawn / deletion is requested."
+      },
+      {
+        "title": "Third-party services",
+        "content": "Cloudflare Turnstile may be used for form protection (necessary). Vercel Analytics is loaded only after your analytics consent."
+      },
+      {
+        "title": "Your rights",
+        "content": "You may request access, correction, restriction, deletion, and withdrawal of consent at any time."
+      },
+      {
+        "title": "Contact",
+        "content": "For data-related requests, contact us at {{email}}."
+      }
+    ]
+  },
+  "terms": {
+    "title": "Terms of Use",
+    "description": "Terms for accessing the site and contacting through the request form.",
+    "updatedAt": "Updated: April 18, 2026",
+    "sections": [
+      {
+        "title": "Website purpose",
+        "content": "This website is informational and does not replace medical care or emergency intervention."
+      },
+      {
+        "title": "Form submissions",
+        "content": "By submitting the form, you confirm the accuracy of your information and agree to data processing under the Privacy Policy."
+      },
+      {
+        "title": "Confidentiality",
+        "content": "Both parties commit to confidentiality within legal and professional ethical boundaries."
+      },
+      {
+        "title": "Limitation of liability",
+        "content": "The site owner is not liable for technical outages, third-party service unavailability, or temporary response delays."
+      },
+      {
+        "title": "Updates",
+        "content": "These terms may be updated. The latest version is always published on this page."
+      },
+      {
+        "title": "Contacts",
+        "content": "For organizational questions, contact {{email}} or Telegram {{telegramHandle}}."
+      }
+    ]
+  },
+  "a11y": {
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "switchLanguage": "Switch language",
+    "skipToMain": "Skip to main content",
+    "mainNav": "Main navigation",
+    "footerNav": "Footer navigation",
+    "mobileNav": "Mobile navigation"
+  },
+  "seo": {
+    "home": {
+      "title": "{{name}} | {{role}}",
+      "description": "Online sessions in Ukrainian and English for anxiety, crises, relationships, and meaning-related work."
+    },
+    "privacy": {
+      "title": "Privacy Policy | {{name}}",
+      "description": "How personal data is processed when you use this website."
+    },
+    "terms": {
+      "title": "Terms of Use | {{name}}",
+      "description": "Rules for website usage and submitting contact requests."
+    },
+    "blog": {
+      "title": "Blog | {{name}}",
+      "description": "Articles on anxiety, relationships, crises, and psychological integration."
+    },
+    "notFound": {
+      "title": "Page not found | {{name}}",
+      "description": "The page you requested does not exist or has been moved."
+    }
+  },
+  "common": {
+    "menu": "Menu",
+    "language": "Language",
+    "loading": "Loading...",
+    "readMore": "Read",
+    "backHome": "Back to homepage",
+    "notFound": "Page not found"
+  },
+  "cookies": {
+    "ariaLabel": "Cookie settings",
+    "message": "We use necessary cookies for form security and optional analytics cookies only after your consent.",
+    "necessary": "Necessary only",
+    "all": "Accept all"
+  },
+  "errorBoundary": {
+    "title": "Something went wrong",
+    "reload": "Reload page"
+  }
+}
