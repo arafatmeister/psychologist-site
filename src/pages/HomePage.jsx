@@ -4,7 +4,6 @@ import { SITE } from '../config/site';
 import { ROUTES } from '../config/routes';
 import { SEO } from '../components/SEO/SEO';
 import { StructuredData } from '../components/SEO/StructuredData';
-import { Container } from '../components/layout/Container';
 import { Blog } from '../components/sections/Blog';
 import { CTA } from '../components/sections/CTA';
 import { FAQ } from '../components/sections/FAQ';
@@ -41,17 +40,9 @@ export default function HomePage() {
       <CTA />
       <Blog />
       <FAQ />
-
-      <section id="contact" className="py-14">
-        <div className="mx-auto w-full max-w-xl px-6">
-          <h2 className="mb-6 text-center text-3xl font-semibold text-zinc-900">
-            {t('form.title')}
-          </h2>
-          <Suspense fallback={<PageLoader />}>
-            <ContactForm />
-          </Suspense>
-        </div>
-      </section>
+      <Suspense fallback={<PageLoader />}>
+        <ContactForm />
+      </Suspense>
     </>
   );
 }

@@ -1,22 +1,38 @@
 import { useTranslation } from 'react-i18next';
 import { Container } from '../layout/Container';
-import { Card } from '../ui/Card';
+import { Eyebrow } from '../ui/Eyebrow';
+import { useInView } from '../../lib/useInView';
 
 export function Services() {
   const { t } = useTranslation();
   const services = t('sections.services.items', { returnObjects: true });
+  const { ref, inView } = useInView();
 
   return (
-    <section id="services" className="py-14">
+    <section
+      id="services"
+      ref={ref}
+      className={`bg-paper-2 py-16 md:py-24 fade-in-section ${inView ? 'is-visible' : ''}`}
+    >
       <Container>
-        <h2 className="text-3xl font-semibold text-zinc-900">{t('sections.services.title')}</h2>
-        <p className="mt-3 text-zinc-600">{t('sections.services.subtitle')}</p>
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          {services.map((service) => (
-            <Card key={service.title}>
-              <h3 className="text-xl font-semibold text-zinc-900">{service.title}</h3>
-              <p className="mt-2 text-zinc-600">{service.desc}</p>
-            </Card>
+        <Eyebrow>{t('sections.services.eyebrow')}</Eyebrow>
+        <h2 className="mt-4 text-4xl leading-tight md:text-5xl">{t('sections.services.title')}</h2>
+        <p className="mt-6 max-w-[60ch] text-ink-500">{t('sections.services.subtitle')}</p>
+
+        <div className="mt-14 grid gap-x-16 gap-y-4 md:grid-cols-2">
+          {services.map((item) => (
+            <article key={item.title} className="border-t border-ink-200 pb-12 pt-8">
+              <Eyebrow>{item.format}</Eyebrow>
+              <h3 className="mt-3 text-2xl leading-snug">{item.title}</h3>
+              <div className="mt-3 flex items-center gap-2 text-xs text-ink-500">
+                <span className="inline-flex items-center rounded-full border border-ink-300 px-2.5 py-0.5">
+                  {item.duration}
+                </span>
+                <span aria-hidden>·</span>
+                <span>{item.mode}</span>
+              </div>
+              <p className="mt-5 text-ink-500">{item.desc}</p>
+            </article>
           ))}
         </div>
       </Container>

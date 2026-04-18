@@ -1,1 +1,238 @@
-@import './styles/index.css';
+@import './styles/fonts.css';
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Literata Variable', ui-serif, georgia, serif;
+  --font-display: 'Literata Variable', ui-serif, georgia, serif;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.5rem;
+  --text-4xl: 3.5rem;
+  --text-5xl: 4.5rem;
+  --text-6xl: 5.5rem;
+  --leading-tight: 1.05;
+  --leading-snug: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+  --tracking-tighter: -0.025em;
+  --tracking-tight: -0.015em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.04em;
+  --tracking-widest: 0.12em;
+  --color-ink-900: #0a0a0a;
+  --color-ink-800: #171717;
+  --color-ink-700: #262626;
+  --color-ink-500: #525252;
+  --color-ink-400: #737373;
+  --color-ink-300: #a3a3a3;
+  --color-ink-200: #d4d4d4;
+  --color-ink-100: #e5e5e5;
+  --color-paper: #f5f5f5;
+  --color-paper-2: #ebebeb;
+  --color-paper-3: #e0e0e0;
+  --color-white: #fafafa;
+  --color-bg: var(--color-paper);
+  --color-fg: var(--color-ink-900);
+  --color-muted: var(--color-ink-500);
+  --color-line: var(--color-ink-200);
+  --color-danger: #7a1f1f;
+  --color-success: #1f4a2e;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.6, 0, 0.4, 1);
+  --duration-fast: 180ms;
+  --duration-base: 320ms;
+  --duration-slow: 520ms;
+}
+
+html {
+  font-size: 17px;
+  min-height: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  scrollbar-gutter: stable;
+}
+
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  font-feature-settings: 'ss01', 'cv11', 'cv05';
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-variation-settings: 'opsz' 72;
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-ink-900);
+}
+
+h1 {
+  font-variation-settings: 'opsz' 72;
+  letter-spacing: var(--tracking-tighter);
+}
+
+em,
+.italic-display {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+}
+
+article,
+.prose {
+  font-feature-settings: 'onum', 'ss01';
+}
+
+a,
+button,
+input,
+textarea,
+summary {
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+a[href],
+button,
+summary,
+input[type='checkbox'],
+input[type='radio'] {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+::selection {
+  background: var(--color-ink-900);
+  color: var(--color-paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ink-900);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.on-dark :focus-visible {
+  outline-color: var(--color-paper);
+}
+
+details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+details > summary:focus-visible {
+  outline: 2px solid var(--color-ink-900);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+details[open] > div {
+  animation: faq-expand 300ms var(--ease-out);
+}
+
+.link-underline {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--color-ink-300);
+}
+
+.link-underline:hover {
+  text-decoration-color: var(--color-ink-900);
+}
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes mobile-overlay-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes mobile-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes faq-expand {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+blockquote.pullquote {
+  text-indent: -0.4em;
+  hanging-punctuation: first last;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto !important;
+  }
+}

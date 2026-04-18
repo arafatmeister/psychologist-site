@@ -4,6 +4,7 @@ import { ROUTES } from '../config/routes';
 import { SITE } from '../config/site';
 import { SEO } from '../components/SEO/SEO';
 import { Container } from '../components/layout/Container';
+import { Button } from '../components/ui/Button';
 
 export default function NotFoundPage() {
   const { t } = useTranslation();
@@ -17,14 +18,11 @@ export default function NotFoundPage() {
         noindex
       />
       <Container className="py-24 text-center">
-        <h1 className="text-4xl font-semibold text-zinc-900">404</h1>
-        <p className="mt-3 text-zinc-600">{t('common.notFound')}</p>
-        <Link
-          className="mt-6 inline-block rounded-lg bg-zinc-900 px-5 py-3 text-white"
-          to={ROUTES.home}
-        >
+        <h1 className="text-5xl">404</h1>
+        <p className="mt-4 text-ink-500">{t('common.notFound')}</p>
+        <Button as={Link} to={ROUTES.home} className="mt-8">
           {t('common.backHome')}
-        </Link>
+        </Button>
       </Container>
     </>
   );

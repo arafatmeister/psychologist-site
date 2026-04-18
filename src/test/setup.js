@@ -17,6 +17,22 @@ if (!window.matchMedia) {
   });
 }
 
+if (!window.IntersectionObserver) {
+  window.IntersectionObserver = class IntersectionObserver {
+    constructor(callback) {
+      this.callback = callback;
+    }
+
+    observe() {
+      this.callback([{ isIntersecting: true }]);
+    }
+
+    unobserve() {}
+
+    disconnect() {}
+  };
+}
+
 beforeEach(() => {
   window.localStorage.clear();
   window.sessionStorage.clear();

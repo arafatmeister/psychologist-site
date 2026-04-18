@@ -3,40 +3,51 @@ import { useTranslation } from 'react-i18next';
 import { SITE } from '../../config/site';
 import { classNames } from '../../lib/classNames';
 
-export function LanguageSwitcher({ compact = false }) {
-  const { i18n, t } = useTranslation();
+export function LanguageSwitcher({ variant = 'light', className }) {
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     document.documentElement.lang = i18n.resolvedLanguage || SITE.defaultLocale;
   }, [i18n.resolvedLanguage]);
+
+  const currentLang = i18n.resolvedLanguage || SITE.defaultLocale;
+  const isDark = variant === 'dark';
 
   function switchTo(language) {
     i18n.changeLanguage(language);
   }
 
   return (
-    <div
-      className={classNames(
-        'inline-flex rounded-lg border border-zinc-300 bg-white p-1',
-        compact && 'text-xs',
-      )}
-    >
-      {SITE.supportedLocales.map((language) => {
-        const isActive = i18n.resolvedLanguage === language;
+    <div className={classNames('inline-flex items-center gap-2 text-sm', className)} role="group">
+      {SITE.supportedLocales.map((language, index) => {
+        const isActive = currentLang === language;
+        const label = language === 'en' ? 'English' : 'Українська';
         return (
-          <button
-            key={language}
-            type="button"
-            className={classNames(
-              'cursor-pointer rounded-md px-2.5 py-1.5 font-medium uppercase motion-safe:transition-colors',
-              isActive ? 'bg-zinc-900 text-white' : 'text-zinc-600 hover:bg-zinc-100',
+          <span key={language} className="inline-flex items-center gap-2">
+            <button
+              type="button"
+              className={classNames(
+                'cursor-pointer uppercase',
+                isActive
+                  ? isDark
+                    ? 'font-medium text-paper'
+                    : 'font-medium text-ink-900'
+                  : isDark
+                    ? 'text-ink-300 hover:text-paper'
+                    : 'text-ink-500 hover:text-ink-700',
+              )}
+              aria-pressed={isActive}
+              aria-label={isActive ? undefined : `Switch to ${label}`}
+              onClick={() => switchTo(language)}
+            >
+              {language}
+            </button>
+            {index < SITE.supportedLocales.length - 1 && (
+              <span aria-hidden="true" className={isDark ? 'text-ink-500' : 'text-ink-300'}>
+                /
+              </span>
             )}
-            aria-label={t('a11y.switchLanguage')}
-            aria-pressed={isActive}
-            onClick={() => switchTo(language)}
-          >
-            {language}
-          </button>
+          </span>
         );
       })}
     </div>

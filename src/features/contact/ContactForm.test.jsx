@@ -29,7 +29,7 @@ describe('ContactForm', () => {
 
     await user.click(screen.getByRole('button', { name: /надіслати заявку/i }));
 
-    expect(await screen.findByText(/ім'я має містити щонайменше 2 символи/i)).toBeInTheDocument();
+    expect(await screen.findByText(/ім.?я має містити щонайменше 2 символи/i)).toBeInTheDocument();
     expect(
       await screen.findByText(/введіть валідний email або telegram username/i),
     ).toBeInTheDocument();
@@ -55,7 +55,7 @@ describe('ContactForm', () => {
     const user = userEvent.setup();
     renderWithProviders(<ContactForm />);
 
-    await user.type(screen.getByLabelText(/ваше ім'я/i), 'Тест Користувач');
+    await user.type(screen.getByLabelText(/ваше ім.?я/i), 'Тест Користувач');
     await user.type(screen.getByLabelText(/email або telegram/i), 'test@example.com');
     await user.type(
       screen.getByLabelText(/коротко опишіть запит/i),
@@ -65,7 +65,7 @@ describe('ContactForm', () => {
     await user.click(screen.getByRole('button', { name: /turnstile-verify/i }));
     await user.click(screen.getByRole('button', { name: /надіслати заявку/i }));
 
-    expect(await screen.findByText(/інформація не була збережена/i)).toBeInTheDocument();
+    expect(await screen.findByText(/дякую\. відповім протягом 24/i)).toBeInTheDocument();
     expect(submitContact).toHaveBeenCalledTimes(1);
   });
 
@@ -74,7 +74,7 @@ describe('ContactForm', () => {
     window.sessionStorage.setItem('last_submit_at', String(Date.now()));
 
     renderWithProviders(<ContactForm />);
-    await user.type(screen.getByLabelText(/ваше ім'я/i), 'Тест Користувач');
+    await user.type(screen.getByLabelText(/ваше ім.?я/i), 'Тест Користувач');
     await user.type(screen.getByLabelText(/email або telegram/i), 'test@example.com');
     await user.type(
       screen.getByLabelText(/коротко опишіть запит/i),

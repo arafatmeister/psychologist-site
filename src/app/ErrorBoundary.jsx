@@ -21,10 +21,10 @@ class ErrorBoundaryBase extends Component {
       const { t } = this.props;
       return (
         <div className="mx-auto max-w-3xl px-6 py-20 text-center">
-          <h1 className="text-3xl font-semibold text-zinc-900">{t('errorBoundary.title')}</h1>
+          <h1 className="text-3xl text-ink-900">{t('errorBoundary.title')}</h1>
           <button
             type="button"
-            className="mt-6 cursor-pointer rounded-lg bg-zinc-900 px-5 py-3 text-white"
+            className="mt-6 min-h-12 rounded-full bg-ink-900 px-5 py-3 text-paper"
             onClick={() => window.location.reload()}
           >
             {t('errorBoundary.reload')}

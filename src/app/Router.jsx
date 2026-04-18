@@ -5,6 +5,8 @@ import { CookieBanner } from '../components/CookieBanner';
 import { Footer } from '../components/layout/Footer';
 import { Header } from '../components/layout/Header';
 import { ROUTES } from '../config/routes';
+import { HashScroll } from '../lib/HashScroll';
+import { ScrollToTop } from '../lib/ScrollToTop';
 import HomePage from '../pages/HomePage';
 
 const BlogPage = lazy(() => import('../pages/BlogPage'));
@@ -17,15 +19,17 @@ function AppRouterBody() {
 
   return (
     <>
+      <ScrollToTop />
+      <HashScroll />
       <a
         href="#main"
-        className="sr-only left-4 top-4 rounded-md bg-zinc-900 px-4 py-2 text-white focus:not-sr-only focus:absolute"
+        className="sr-only left-4 top-4 bg-ink-900 px-4 py-2 text-paper focus:not-sr-only focus:absolute"
       >
         {t('a11y.skipToMain')}
       </a>
-      <div className="min-h-screen bg-gradient-to-b from-stone-50 via-white to-stone-100 text-zinc-800">
+      <div className="min-h-screen bg-paper text-ink-900">
         <Header />
-        <main id="main">
+        <main id="main" tabIndex={-1} className="pt-2 outline-none">
           <Routes>
             <Route path={ROUTES.home} element={<HomePage />} />
             <Route path={ROUTES.blog} element={<BlogPage />} />

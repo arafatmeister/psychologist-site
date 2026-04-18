@@ -6,8 +6,9 @@ export const Input = forwardRef(function Input({ className, ...props }, ref) {
     <input
       ref={ref}
       className={classNames(
-        'w-full rounded-lg border border-zinc-300 bg-white px-4 py-3 text-sm',
-        'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900',
+        'w-full rounded-none border-0 border-b border-ink-300 bg-transparent px-0 py-3 text-ink-900 placeholder:text-ink-400',
+        'focus:border-ink-900 focus:outline-none',
+        'aria-[invalid=true]:border-danger',
         className,
       )}
       {...props}

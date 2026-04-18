@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ROUTES } from '../../config/routes';
 import { SITE } from '../../config/site';
+import { Eyebrow } from '../ui/Eyebrow';
 import { Container } from './Container';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
@@ -9,28 +10,52 @@ export function Footer() {
   const { t } = useTranslation();
 
   return (
-    <footer role="contentinfo" className="border-t border-zinc-200 bg-white py-10">
-      <Container className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
-        <div className="space-y-3 text-sm text-zinc-600">
-          <p>{t('footer.copyright', { year: new Date().getFullYear(), name: SITE.author })}</p>
-          <nav aria-label={t('a11y.footerNav')} className="flex flex-wrap items-center gap-4">
-            <Link className="underline-offset-2 hover:underline" to={ROUTES.privacy}>
-              {t('footer.privacy')}
-            </Link>
-            <Link className="underline-offset-2 hover:underline" to={ROUTES.terms}>
-              {t('footer.terms')}
-            </Link>
-            <a
-              className="underline-offset-2 hover:underline"
-              href={SITE.telegramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {SITE.telegramHandle}
-            </a>
-          </nav>
+    <footer role="contentinfo" className="on-dark mt-0 bg-ink-900 py-20 text-ink-300">
+      <Container className="grid gap-10 md:grid-cols-2">
+        <div>
+          <p className="text-2xl text-paper">{SITE.name}</p>
+          <Eyebrow className="mt-2" style={{ color: 'var(--color-ink-200)' }}>
+            {t('header.role')}
+          </Eyebrow>
+          <p className="mt-8 max-w-[40ch] font-serif text-base italic leading-relaxed text-ink-200">
+            {t('footer.about')}
+          </p>
         </div>
-        <LanguageSwitcher />
+        <nav aria-label={t('a11y.footerNav')} className="flex flex-col gap-3 text-sm md:items-end">
+          <Link
+            to={ROUTES.privacy}
+            className="w-fit underline decoration-ink-500 underline-offset-4 transition-colors hover:text-paper hover:decoration-paper"
+          >
+            {t('footer.privacy')}
+          </Link>
+          <Link
+            to={ROUTES.terms}
+            className="w-fit underline decoration-ink-500 underline-offset-4 transition-colors hover:text-paper hover:decoration-paper"
+          >
+            {t('footer.terms')}
+          </Link>
+          <a
+            href={SITE.telegramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-fit underline decoration-ink-500 underline-offset-4 transition-colors hover:text-paper hover:decoration-paper"
+          >
+            Telegram {SITE.telegramHandle}
+          </a>
+          <a
+            href={`mailto:${SITE.email}`}
+            className="w-fit underline decoration-ink-500 underline-offset-4 transition-colors hover:text-paper hover:decoration-paper"
+          >
+            {SITE.email}
+          </a>
+        </nav>
+      </Container>
+
+      <Container className="mt-16 flex flex-col justify-between gap-4 border-t border-ink-700 pt-8 text-sm text-ink-300 md:flex-row md:items-center">
+        <span>
+          © {new Date().getFullYear()} {SITE.author} · {t('footer.confidential')}
+        </span>
+        <LanguageSwitcher variant="dark" />
       </Container>
     </footer>
   );

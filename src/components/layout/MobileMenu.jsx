@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ROUTES } from '../../config/routes';
-import { SITE } from '../../config/site';
 import { Button } from '../ui/Button';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
@@ -60,10 +59,10 @@ export function MobileMenu({ isOpen, onClose, triggerRef }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 top-20 z-30 md:hidden" role="dialog" aria-modal="true">
+    <div className="fixed inset-0 z-50 md:hidden" role="dialog" aria-modal="true">
       <button
         type="button"
-        className="absolute inset-0 cursor-pointer bg-zinc-950/20 backdrop-blur-[1px]"
+        className="absolute inset-0 bg-ink-900/20 [animation:mobile-overlay-in_300ms_var(--ease-out)]"
         aria-label={t('a11y.closeMenu')}
         onClick={onClose}
       />
@@ -71,80 +70,67 @@ export function MobileMenu({ isOpen, onClose, triggerRef }) {
       <div
         ref={panelRef}
         id="mobile-nav"
-        className="absolute inset-x-2 top-2 rounded-xl border border-zinc-200 bg-white p-5 shadow-xl"
+        className="relative h-full overflow-auto bg-paper px-6 pb-8 pt-5 [animation:mobile-panel-in_300ms_var(--ease-out)]"
       >
-        <div className="mb-4 flex items-center justify-between">
-          <p className="text-xs font-semibold uppercase tracking-[0.08em] text-zinc-500">
-            {t('common.menu')}
-          </p>
-          <button
-            type="button"
-            className="inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg border border-zinc-300"
-            aria-label={t('a11y.closeMenu')}
-            onClick={onClose}
-          >
-            <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4 text-zinc-700">
-              <path
-                d="M6 6l12 12M18 6l-12 12"
+        <div className="mx-auto flex h-full w-full max-w-[1180px] flex-col">
+          <div className="mb-10 flex items-center justify-between">
+            <LanguageSwitcher />
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label={t('a11y.closeMenu')}
+              className="-mr-2 inline-flex h-11 w-11 items-center justify-center text-ink-900"
+            >
+              <svg
+                aria-hidden="true"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
                 fill="none"
                 stroke="currentColor"
+                strokeWidth="1.5"
                 strokeLinecap="round"
-                strokeWidth="2"
-              />
-            </svg>
-          </button>
-        </div>
-
-        <nav aria-label={t('a11y.mobileNav')} className="grid gap-2">
-          <a
-            className="cursor-pointer rounded-lg px-3 py-3 text-base text-zinc-800 hover:bg-zinc-100"
-            href="/#services"
-            onClick={onClose}
-          >
-            {t('header.nav.services')}
-          </a>
-          <a
-            className="cursor-pointer rounded-lg px-3 py-3 text-base text-zinc-800 hover:bg-zinc-100"
-            href="/#faq"
-            onClick={onClose}
-          >
-            {t('header.nav.faq')}
-          </a>
-          <a
-            className="cursor-pointer rounded-lg px-3 py-3 text-base text-zinc-800 hover:bg-zinc-100"
-            href="/#contact"
-            onClick={onClose}
-          >
-            {t('header.nav.contact')}
-          </a>
-          <Link
-            className="cursor-pointer rounded-lg px-3 py-3 text-base text-zinc-800 hover:bg-zinc-100"
-            to={ROUTES.blog}
-            onClick={onClose}
-          >
-            {t('header.nav.blog')}
-          </Link>
-        </nav>
-
-        <div className="mt-5 border-t border-zinc-200 pt-4">
-          <div className="mb-4 flex items-center justify-between">
-            <p className="text-xs uppercase tracking-wide text-zinc-500">{t('common.language')}</p>
-            <LanguageSwitcher compact />
+              >
+                <path d="M4 4l12 12M16 4L4 16" />
+              </svg>
+            </button>
           </div>
 
-          <div className="grid gap-2">
-            <Button as={Link} to="/#contact" onClick={onClose}>
-              {t('header.cta.book')}
-            </Button>
+          <nav aria-label={t('a11y.mobileNav')} className="grid gap-4">
             <a
-              className="cursor-pointer rounded-lg border border-zinc-300 px-4 py-3 text-center text-sm hover:bg-zinc-100"
-              href={SITE.telegramUrl}
-              rel="noopener noreferrer"
-              target="_blank"
+              className="font-serif text-3xl leading-tight text-ink-900"
+              href="/#services"
               onClick={onClose}
             >
-              {SITE.telegramHandle}
+              {t('header.nav.services')}
             </a>
+            <a
+              className="font-serif text-3xl leading-tight text-ink-900"
+              href="/#faq"
+              onClick={onClose}
+            >
+              {t('header.nav.faq')}
+            </a>
+            <a
+              className="font-serif text-3xl leading-tight text-ink-900"
+              href="/#contact"
+              onClick={onClose}
+            >
+              {t('header.nav.contact')}
+            </a>
+            <Link
+              className="font-serif text-3xl leading-tight text-ink-900"
+              to={ROUTES.blog}
+              onClick={onClose}
+            >
+              {t('header.nav.blog')}
+            </Link>
+          </nav>
+
+          <div className="mt-auto pt-12">
+            <Button as="a" href="/#contact" className="w-full" onClick={onClose}>
+              {t('header.cta.book')}
+            </Button>
           </div>
         </div>
       </div>

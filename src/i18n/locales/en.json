@@ -4,7 +4,7 @@
     "nav": {
       "services": "Services",
       "faq": "FAQ",
-      "contact": "Contact",
+      "contact": "Request",
       "blog": "Blog"
     },
     "cta": {
@@ -13,125 +13,171 @@
     }
   },
   "hero": {
-    "kicker": "Online consultations • UA / EN",
-    "kickerMeta": "Confidential • Reply within 24 hours",
-    "title": "I help you move through crises, regain meaning, and reconnect with yourself.",
+    "eyebrow": "Online · UA / EN · Confidential",
+    "titleBefore": "Helping you through crises, ",
+    "titleEm": "reclaiming meaning",
+    "titleAfter": " and finding yourself.",
     "subtitle": "Individual counseling, couples work, adolescent support, and psychedelic integration.",
-    "cta": {
-      "book": "Book session",
-      "free": "Free first contact"
-    },
-    "note": "15 minutes to clarify your request and choose the right format.",
-    "photoAlt": "Psychologist Yaroslav Doroshenko"
+    "ctaBook": "Book session",
+    "ctaFree": "Free 15-minute intro call",
+    "note": "A\u00A015-minute intro to understand your request. I'll reply within 24\u00A0hours.",
+    "photoCaption": "— Kyiv, 2024",
+    "photoAlt": "Yaroslav Doroshenko portrait"
   },
   "sections": {
     "helpWith": {
-      "title": "How I can help",
-      "items": [
-        "Anxiety, loss of meaning, life crises",
-        "Relationships, conflicts, emotional distance",
-        "Support for adolescents and parents",
-        "Integration of deep experiences"
-      ]
-    },
-    "services": {
-      "title": "Services",
-      "subtitle": "The format is tailored to your request and life context.",
+      "eyebrow": "How I can help",
+      "title": "Topics we can work with",
       "items": [
         {
-          "title": "Individual counseling",
-          "desc": "Deep work with inner struggles, anxiety, and life direction."
+          "title": "Anxiety, loss of meaning, life crises",
+          "desc": "When old structures stop working, we rebuild inner clarity and a stable sense of direction."
         },
         {
-          "title": "Couples counseling",
-          "desc": "Restoring dialogue, clarity, and mutual respect in relationships."
+          "title": "Relationships, conflict, emotional distance",
+          "desc": "We map repeating dynamics and restore dialogue without blame."
         },
         {
-          "title": "Adolescent counseling",
-          "desc": "Support during identity development, boundaries, and conflict."
+          "title": "Support for adolescents and parents",
+          "desc": "Support through identity shifts, boundaries, and high emotional tension at home."
         },
         {
           "title": "Psychedelic integration",
-          "desc": "Making sense of intense experiences and integrating insights into daily life."
+          "desc": "Making sense of intense experiences and integrating insights into everyday life."
+        }
+      ]
+    },
+    "services": {
+      "eyebrow": "Formats",
+      "title": "Services",
+      "subtitle": "Each format is tailored to your request and life context.",
+      "items": [
+        {
+          "format": "Individual",
+          "title": "Individual counseling",
+          "desc": "Deep work with anxiety, difficult choices, and periods of disorientation.",
+          "duration": "50 min",
+          "mode": "online · UA/EN"
+        },
+        {
+          "format": "Couples",
+          "title": "Couples counseling",
+          "desc": "A structured space to restore dialogue, respect, and clarity in relationships.",
+          "duration": "60 min",
+          "mode": "online · UA/EN"
+        },
+        {
+          "format": "Adolescents",
+          "title": "Adolescent counseling",
+          "desc": "Support through identity development, emotional swings, and family conflict.",
+          "duration": "50 min",
+          "mode": "online · UA/EN"
+        },
+        {
+          "format": "Integration",
+          "title": "Psychedelic integration",
+          "desc": "Grounding intense experiences and translating insight into practical change.",
+          "duration": "50 min",
+          "mode": "online · UA/EN"
         }
       ]
     },
     "trust": {
+      "eyebrow": "Trust",
       "title": "Why clients trust me",
-      "subtitle": "Respect for your story, confidentiality, and focus on real change.",
-      "items": [
-        "A safe, non-judgmental space",
-        "Depth instead of generic advice",
-        "Clear structure and transparent process",
-        "Session-between support by agreement"
+      "quote": "For the first time in years, I could speak honestly about what was happening to me.",
+      "quoteAuthor": "client, 34",
+      "facts": [
+        { "value": "6+", "label": "years in practice" },
+        { "value": "400+", "label": "sessions" },
+        { "value": "2018", "label": "practice started" }
       ]
     },
     "cta": {
-      "title": "Start your change today",
-      "subtitle": "A confidential space for meaningful conversation. Online sessions in UA / EN."
+      "eyebrow": "Start",
+      "body": "If what you read resonates, write to me. Even just to start with a short intro.",
+      "button": "Write to me"
     },
     "blog": {
+      "eyebrow": "Reading",
       "title": "Blog",
-      "subtitle": "Articles to help you understand yourself and your processes.",
+      "subtitle": "Essays to help you understand yourself in difficult periods.",
+      "readMore": "Read more",
       "items": [
         {
+          "category": "Crisis",
+          "date": "2026-03-02",
+          "readTime": "7 min",
           "slug": "sense-in-crisis",
           "title": "Finding meaning in crisis",
-          "excerpt": "Practical orientation points when old foundations no longer work."
+          "teaser": "Practical orientation points when old foundations no longer work."
         },
         {
+          "category": "Anxiety",
+          "date": "2026-02-17",
+          "readTime": "6 min",
           "slug": "what-anxiety-says",
           "title": "What anxiety is really saying",
-          "excerpt": "How to read persistent tension and respond more effectively."
+          "teaser": "How to read persistent tension and respond with more precision."
         },
         {
+          "category": "Integration",
+          "date": "2026-01-28",
+          "readTime": "8 min",
           "slug": "after-deep-experience",
           "title": "After an intense experience: what next?",
-          "excerpt": "Integration steps without losing contact with everyday reality."
+          "teaser": "Integration steps without losing contact with everyday reality."
         }
       ]
     },
     "faq": {
-      "title": "Frequently asked questions",
+      "eyebrow": "Frequently asked questions",
+      "title": "Questions",
       "items": [
         {
-          "question": "How long is one session?",
-          "answer": "A standard session lasts 50 minutes. Extended format is available by request."
+          "question": "How long does one session take?",
+          "answer": "A regular session takes 50 minutes. The first intro call is 15 minutes and free."
         },
         {
-          "question": "How are sessions held?",
-          "answer": "Mostly online (Google Meet/Zoom/Telegram). The format is agreed before the first session."
+          "question": "What is the consultation format?",
+          "answer": "Online via Zoom, Google Meet, or messenger of your choice. Audio or video."
         },
         {
           "question": "Do you work in English?",
-          "answer": "Yes, sessions are available in Ukrainian and English."
+          "answer": "Yes, sessions are available in Ukrainian and English. Select your language in the request form."
         },
         {
           "question": "How quickly do you reply?",
-          "answer": "Usually within 24 hours on business days."
+          "answer": "I reply to all requests within 24 hours, often on the same day."
         },
         {
           "question": "Are sessions confidential?",
-          "answer": "Yes. Your information remains confidential within legal and ethical boundaries."
+          "answer": "Yes. Everything you share stays between us. Exceptions are described in the Privacy Policy."
         },
         {
           "question": "Can I cancel a session?",
-          "answer": "Yes, cancellation is possible in advance. The policy is clarified during scheduling."
+          "answer": "Yes, free cancellation is possible up to 24 hours before the session. Later cancellations are charged in full."
         }
       ]
     }
   },
   "form": {
-    "title": "Send a request",
+    "eyebrow": "Contact",
+    "title": "Leave a request",
+    "subtitle": "I reply within 24 hours. First conversation is commitment-free.",
     "name": "Your name",
     "contact": "Email or Telegram",
+    "contactHelp": "Use email or Telegram username.",
     "message": "Briefly describe your request",
-    "consent": "I agree to personal data processing",
-    "privacyLink": "Privacy policy",
+    "consentBefore": "I agree to personal data processing according to the\u00A0",
+    "consentLink": "Privacy Policy",
+    "consentAfter": ".",
     "submit": "Send request",
+    "successTitle": "Thank you. I will reply within 24 hours.",
+    "successHint": "Your request is received. For urgent questions, message me on Telegram.",
     "status": {
-      "pending": "Sending...",
-      "success": "Everything is okay: your request was accepted, but the data was not saved yet (demo mode).",
+      "pending": "Sending…",
+      "success": "Request accepted.",
       "error": "Could not send your request. Please try again."
     },
     "errors": {
@@ -148,9 +194,11 @@
     }
   },
   "footer": {
-    "copyright": "© {{year}} {{name}}. Online sessions Worldwide. Confidential.",
+    "about": "A confidential online space for honest conversations about crisis, relationships, and meaning.",
+    "copyright": "© {{year}} {{name}}. Online sessions worldwide. Confidential.",
     "privacy": "Privacy Policy",
-    "terms": "Terms of Use"
+    "terms": "Terms of Use",
+    "confidential": "Confidential"
   },
   "privacy": {
     "title": "Privacy Policy",
@@ -252,7 +300,7 @@
   "common": {
     "menu": "Menu",
     "language": "Language",
-    "loading": "Loading...",
+    "loading": "Loading…",
     "readMore": "Read",
     "backHome": "Back to homepage",
     "notFound": "Page not found"

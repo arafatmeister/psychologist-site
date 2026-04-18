@@ -13,6 +13,9 @@ export const SITE = {
   ogImage: '/og-image.jpg',
   defaultLocale: 'uk',
   supportedLocales: ['uk', 'en'],
+  features: {
+    blog: false,
+  },
   analytics: {
     vercel: true,
   },

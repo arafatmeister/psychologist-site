@@ -22,7 +22,7 @@ test('language switcher changes content', async ({ page }) => {
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Допомагаю');
 
   await page.getByText(/^en$/i).first().click();
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('I help you');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Helping you');
 });
 
 test('contact form validates and shows success with stub', async ({ page }) => {
@@ -41,10 +41,10 @@ test('contact form validates and shows success with stub', async ({ page }) => {
   await form
     .locator('textarea[name="message"]')
     .fill('This is a valid request message for stub testing.');
-  await form.locator('input[name="consent"]').check();
+  await form.getByText(/i agree to personal data processing/i).click();
 
   await form.locator('button[type="submit"]').click();
-  await expect(form.getByText(/data was not saved yet/i)).toBeVisible();
+  await expect(page.getByRole('status').getByText(/reply within 24 hours/i)).toBeVisible();
 });
 
 test('has no obvious a11y violations', async ({ page }) => {

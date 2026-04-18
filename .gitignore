@@ -30,5 +30,6 @@ coverage/
 .playwright/
 playwright-report/
 test-results/
+docs/
 
 .husky/_

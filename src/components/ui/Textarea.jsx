@@ -6,8 +6,9 @@ export const Textarea = forwardRef(function Textarea({ className, ...props }, re
     <textarea
       ref={ref}
       className={classNames(
-        'w-full min-h-36 rounded-lg border border-zinc-300 bg-white px-4 py-3 text-sm',
-        'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900',
+        'w-full min-h-[160px] resize-y rounded-none border-0 border-b border-ink-300 bg-transparent px-0 py-3 text-ink-900 placeholder:text-ink-400',
+        'focus:border-ink-900 focus:outline-none',
+        'aria-[invalid=true]:border-danger',
         className,
       )}
       {...props}

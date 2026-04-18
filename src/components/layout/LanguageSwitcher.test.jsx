@@ -8,7 +8,7 @@ describe('LanguageSwitcher', () => {
     const user = userEvent.setup();
     renderWithProviders(<LanguageSwitcher />);
 
-    await user.click(screen.getByText('en'));
+    await user.click(screen.getByRole('button', { name: /en/i }));
 
     await waitFor(() => {
       expect(document.documentElement.lang).toBe('en');

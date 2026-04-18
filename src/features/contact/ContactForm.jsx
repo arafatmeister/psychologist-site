@@ -8,6 +8,7 @@ import { ROUTES } from '../../config/routes';
 import { logger } from '../../lib/logger';
 import { Button } from '../../components/ui/Button';
 import { Checkbox } from '../../components/ui/Checkbox';
+import { Eyebrow } from '../../components/ui/Eyebrow';
 import { Input } from '../../components/ui/Input';
 import { Textarea } from '../../components/ui/Textarea';
 import { getCsrfToken } from './csrf';
@@ -77,6 +78,7 @@ export function ContactForm() {
   const { t } = useTranslation();
   const turnstileBypass = useMemo(() => isTurnstileBypassed(), []);
   const [status, setStatus] = useState({ type: null, message: '' });
+  const [submitted, setSubmitted] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState(turnstileBypass ? 'bypass-token' : '');
   const schema = useMemo(() => createContactSchema(t), [t]);
 
@@ -139,7 +141,7 @@ export function ContactForm() {
         _csrf: getCsrfToken(),
       });
       setTurnstileToken(turnstileBypass ? 'bypass-token' : '');
-      setStatus({ type: 'success', message: t('form.status.success') });
+      setSubmitted(true);
     } catch (error) {
       logger.error('[contact] submit failed', error);
       setError('root.submit', { message: t('form.status.error') });
@@ -148,121 +150,153 @@ export function ContactForm() {
   });
 
   return (
-    <form
-      className="grid gap-4 rounded-xl border border-zinc-200 bg-white p-6"
-      onSubmit={onSubmit}
-      noValidate
-    >
-      <div className="grid gap-2">
-        <label htmlFor="name" className="text-sm font-medium text-zinc-800">
-          {t('form.name')}
-        </label>
-        <Input
-          id="name"
-          autoComplete="name"
-          aria-invalid={Boolean(errors.name)}
-          aria-describedby={errors.name ? 'name-error' : undefined}
-          {...register('name')}
-        />
-        {errors.name && (
-          <p id="name-error" role="alert" className="text-sm text-red-700">
-            {errors.name.message}
-          </p>
-        )}
-      </div>
-
-      <div className="grid gap-2">
-        <label htmlFor="contact" className="text-sm font-medium text-zinc-800">
-          {t('form.contact')}
-        </label>
-        <Input
-          id="contact"
-          autoComplete="email"
-          aria-invalid={Boolean(errors.contact)}
-          aria-describedby={errors.contact ? 'contact-error' : undefined}
-          {...register('contact')}
-        />
-        {errors.contact && (
-          <p id="contact-error" role="alert" className="text-sm text-red-700">
-            {errors.contact.message}
-          </p>
-        )}
-      </div>
-
-      <div className="grid gap-2">
-        <label htmlFor="message" className="text-sm font-medium text-zinc-800">
-          {t('form.message')}
-        </label>
-        <Textarea
-          id="message"
-          aria-invalid={Boolean(errors.message)}
-          aria-describedby={errors.message ? 'message-error' : undefined}
-          {...register('message')}
-        />
-        {errors.message && (
-          <p id="message-error" role="alert" className="text-sm text-red-700">
-            {errors.message.message}
-          </p>
-        )}
-      </div>
-
-      <input
-        type="text"
-        aria-hidden="true"
-        tabIndex={-1}
-        autoComplete="off"
-        className="hidden"
-        style={{ display: 'none' }}
-        {...register('website')}
-      />
-
-      <input type="hidden" {...register('_csrf')} />
-
-      <div className="flex items-start gap-3">
-        <Checkbox
-          id="consent"
-          aria-invalid={Boolean(errors.consent)}
-          aria-describedby={errors.consent ? 'consent-error' : undefined}
-          {...register('consent')}
-        />
-        <label htmlFor="consent" className="text-sm text-zinc-700">
-          {t('form.consent')}{' '}
-          <Link className="underline" to={ROUTES.privacy}>
-            {t('form.privacyLink')}
-          </Link>
-        </label>
-      </div>
-      {errors.consent && (
-        <p id="consent-error" role="alert" className="text-sm text-red-700">
-          {errors.consent.message}
+    <section id="contact" className="bg-paper py-16 md:py-24">
+      <div className="mx-auto max-w-[640px] px-6 md:px-10">
+        <Eyebrow>{t('form.eyebrow')}</Eyebrow>
+        <h2 className="mt-4 text-4xl leading-tight md:text-5xl">{t('form.title')}</h2>
+        <p className="italic-display mt-4 text-xl leading-relaxed text-ink-700">
+          {t('form.subtitle')}
         </p>
-      )}
 
-      {!turnstileBypass && (
-        <Turnstile
-          siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY || TURNSTILE_TEST_SITE_KEY}
-          options={{ theme: 'light', size: 'normal' }}
-          onSuccess={(token) => setTurnstileToken(token)}
-          onError={() => {
-            logger.warn('[contact] turnstile error');
-            setTurnstileToken('');
-          }}
-          onExpire={() => setTurnstileToken('')}
-        />
-      )}
+        {submitted ? (
+          <div role="status" className="py-16 text-center">
+            <p className="italic-display text-3xl leading-[1.3] text-ink-800">
+              {t('form.successTitle')}
+            </p>
+            <p className="mt-4 text-ink-500">{t('form.successHint')}</p>
+          </div>
+        ) : (
+          <form className="mt-12 space-y-8" onSubmit={onSubmit} noValidate>
+            <div>
+              <label htmlFor="name" className="mb-1 block text-sm font-medium text-ink-700">
+                {t('form.name')}
+              </label>
+              <Input
+                id="name"
+                autoComplete="name"
+                aria-invalid={Boolean(errors.name)}
+                aria-describedby={errors.name ? 'name-error' : undefined}
+                {...register('name')}
+              />
+              {errors.name && (
+                <p id="name-error" role="alert" className="mt-1.5 text-sm text-danger">
+                  {errors.name.message}
+                </p>
+              )}
+            </div>
 
-      <Button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? t('form.status.pending') : t('form.submit')}
-      </Button>
+            <div>
+              <label
+                htmlFor="contact-input"
+                className="mb-1 block text-sm font-medium text-ink-700"
+              >
+                {t('form.contact')}
+              </label>
+              <Input
+                id="contact-input"
+                autoComplete="email"
+                aria-invalid={Boolean(errors.contact)}
+                aria-describedby={errors.contact ? 'contact-error' : 'contact-help'}
+                {...register('contact')}
+              />
+              <p id="contact-help" className="mt-1.5 text-xs italic text-ink-500">
+                {t('form.contactHelp')}
+              </p>
+              {errors.contact && (
+                <p id="contact-error" role="alert" className="mt-1.5 text-sm text-danger">
+                  {errors.contact.message}
+                </p>
+              )}
+            </div>
 
-      {status.message && (
-        <p
-          role={status.type === 'error' ? 'alert' : 'status'}
-          className={status.type === 'error' ? 'text-sm text-red-700' : 'text-sm text-emerald-700'}
-        >
-          {status.message}
-        </p>
-      )}
-    </form>
+            <div>
+              <label htmlFor="message" className="mb-1 block text-sm font-medium text-ink-700">
+                {t('form.message')}
+              </label>
+              <Textarea
+                id="message"
+                rows={5}
+                aria-invalid={Boolean(errors.message)}
+                aria-describedby={errors.message ? 'message-error' : undefined}
+                {...register('message')}
+              />
+              {errors.message && (
+                <p id="message-error" role="alert" className="mt-1.5 text-sm text-danger">
+                  {errors.message.message}
+                </p>
+              )}
+            </div>
+
+            <input
+              type="text"
+              aria-hidden="true"
+              tabIndex={-1}
+              autoComplete="off"
+              className="hidden"
+              style={{ display: 'none' }}
+              {...register('website')}
+            />
+
+            <input type="hidden" {...register('_csrf')} />
+
+            <div>
+              <label htmlFor="consent" className="flex items-start gap-3 text-sm text-ink-700">
+                <Checkbox
+                  id="consent"
+                  aria-invalid={Boolean(errors.consent)}
+                  aria-describedby={errors.consent ? 'consent-error' : undefined}
+                  {...register('consent')}
+                />
+                <span>
+                  {t('form.consentBefore')}
+                  <Link
+                    to={ROUTES.privacy}
+                    className="underline decoration-ink-400 underline-offset-2 hover:decoration-ink-900"
+                  >
+                    {t('form.consentLink')}
+                  </Link>
+                  {t('form.consentAfter')}
+                </span>
+              </label>
+              {errors.consent && (
+                <p id="consent-error" role="alert" className="mt-1.5 text-sm text-danger">
+                  {errors.consent.message}
+                </p>
+              )}
+            </div>
+
+            {!turnstileBypass && (
+              <div className="max-h-[72px] opacity-80">
+                <Turnstile
+                  siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY || TURNSTILE_TEST_SITE_KEY}
+                  options={{ theme: 'light', size: 'compact' }}
+                  onSuccess={(token) => setTurnstileToken(token)}
+                  onError={() => {
+                    logger.warn('[contact] turnstile error');
+                    setTurnstileToken('');
+                  }}
+                  onExpire={() => setTurnstileToken('')}
+                />
+              </div>
+            )}
+
+            {status.type === 'error' && status.message && (
+              <p role="alert" className="text-sm text-danger">
+                {status.message}
+              </p>
+            )}
+
+            <Button
+              type="submit"
+              variant="primary"
+              className="w-full md:w-auto"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? t('form.status.pending') : t('form.submit')}
+            </Button>
+          </form>
+        )}
+      </div>
+    </section>
   );
 }
