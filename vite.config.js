@@ -45,6 +45,27 @@ export default defineConfig({
       png: { quality: 80 },
       webp: { quality: 80 },
       avif: { cqLevel: 33 },
+      svg: {
+        multipass: true,
+        plugins: [
+          {
+            name: 'preset-default',
+            params: {
+              overrides: {
+                cleanupNumericValues: false,
+              },
+            },
+          },
+          'sortAttrs',
+          {
+            name: 'removeAttributesBySelector',
+            params: {
+              selector: "[fill='#000']",
+              attributes: 'fill',
+            },
+          },
+        ],
+      },
     }),
     viteCompression({
       algorithm: 'brotliCompress',

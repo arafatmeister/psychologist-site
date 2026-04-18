@@ -1,7 +1,7 @@
 {
   "name": "psychologist-site",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "engines": {
     "node": ">=20.0.0",
@@ -94,5 +94,8 @@
     "*.{json,md,yml}": [
       "prettier --write"
     ]
+  },
+  "overrides": {
+    "serialize-javascript": "^7.0.5"
   }
 }

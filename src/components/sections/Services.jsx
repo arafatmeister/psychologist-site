@@ -16,7 +16,9 @@ export function Services() {
     >
       <Container>
         <Eyebrow>{t('sections.services.eyebrow')}</Eyebrow>
-        <h2 className="mt-4 text-4xl leading-tight md:text-5xl">{t('sections.services.title')}</h2>
+        <h2 className="mt-4 text-[1.75rem] leading-[1.15] md:text-3xl md:leading-[1.1] lg:text-4xl lg:leading-[1.05]">
+          {t('sections.services.title')}
+        </h2>
         <p className="mt-6 max-w-[60ch] text-ink-500">{t('sections.services.subtitle')}</p>
 
         <div className="mt-14 grid gap-x-16 gap-y-4 md:grid-cols-2">

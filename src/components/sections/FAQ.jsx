@@ -17,7 +17,9 @@ export function FAQ() {
     >
       <Container>
         <Eyebrow>{t('sections.faq.eyebrow')}</Eyebrow>
-        <h2 className="mt-4 text-4xl leading-tight md:text-5xl">{t('sections.faq.title')}</h2>
+        <h2 className="mt-4 text-[1.75rem] leading-[1.15] md:text-3xl md:leading-[1.1] lg:text-4xl lg:leading-[1.05]">
+          {t('sections.faq.title')}
+        </h2>
 
         <div className="mt-12">
           {faqItems.map((item) => (

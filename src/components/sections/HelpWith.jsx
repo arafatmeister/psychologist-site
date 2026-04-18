@@ -16,7 +16,7 @@ export function HelpWith() {
     >
       <Container>
         <Eyebrow>{`01 · ${t('sections.helpWith.eyebrow')}`}</Eyebrow>
-        <h2 className="mt-4 max-w-[20ch] text-4xl leading-tight md:text-5xl">
+        <h2 className="mt-4 max-w-[24ch] text-[1.75rem] leading-[1.15] md:text-3xl md:leading-[1.1] lg:text-4xl lg:leading-[1.05]">
           {t('sections.helpWith.title')}
         </h2>
 

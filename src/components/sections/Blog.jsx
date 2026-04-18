@@ -28,7 +28,9 @@ export function Blog() {
     >
       <Container>
         <Eyebrow>{t('sections.blog.eyebrow')}</Eyebrow>
-        <h2 className="mt-4 text-4xl leading-tight md:text-5xl">{t('sections.blog.title')}</h2>
+        <h2 className="mt-4 text-[1.75rem] leading-[1.15] md:text-3xl md:leading-[1.1] lg:text-4xl lg:leading-[1.05]">
+          {t('sections.blog.title')}
+        </h2>
         <p className="mt-6 max-w-[60ch] text-ink-500">{t('sections.blog.subtitle')}</p>
 
         <div className="mt-14 grid gap-x-12 gap-y-12 md:grid-cols-3 md:divide-x md:divide-ink-200">

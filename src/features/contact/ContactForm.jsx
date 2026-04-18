@@ -153,7 +153,9 @@ export function ContactForm() {
     <section id="contact" className="bg-paper py-16 md:py-24">
       <div className="mx-auto max-w-[640px] px-6 md:px-10">
         <Eyebrow>{t('form.eyebrow')}</Eyebrow>
-        <h2 className="mt-4 text-4xl leading-tight md:text-5xl">{t('form.title')}</h2>
+        <h2 className="mt-4 text-[1.75rem] leading-[1.15] md:text-3xl md:leading-[1.1] lg:text-4xl lg:leading-[1.05]">
+          {t('form.title')}
+        </h2>
         <p className="italic-display mt-4 text-xl leading-relaxed text-ink-700">
           {t('form.subtitle')}
         </p>

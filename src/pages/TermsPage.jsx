@@ -29,7 +29,9 @@ export default function TermsPage() {
       />
       <Container className="py-20 md:py-28">
         <Eyebrow>{t('footer.terms')}</Eyebrow>
-        <h1 className="mt-4 text-5xl leading-tight md:text-6xl">{t('terms.title')}</h1>
+        <h1 className="mt-4 text-[1.75rem] leading-[1.15] md:text-3xl md:leading-[1.1] lg:text-4xl lg:leading-[1.05]">
+          {t('terms.title')}
+        </h1>
         <p className="mt-6 max-w-[60ch] text-ink-500">{t('terms.description')}</p>
         <p className="mt-2 text-sm text-ink-400">{t('terms.updatedAt')}</p>
 
