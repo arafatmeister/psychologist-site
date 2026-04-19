@@ -5,14 +5,9 @@ import { SITE } from '../../config/site';
 import { Container } from '../layout/Container';
 import { Eyebrow } from '../ui/Eyebrow';
 import { useInView } from '../../lib/useInView';
+import { formatDate } from '../../lib/formatDate';
 
-function formatDate(date, locale) {
-  return new Intl.DateTimeFormat(locale === 'uk' ? 'uk-UA' : 'en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  }).format(new Date(date));
-}
+const SHORT_DATE = { year: 'numeric', month: 'short', day: 'numeric' };
 
 export function Blog() {
   const { t, i18n } = useTranslation();
@@ -43,7 +38,7 @@ export function Blog() {
                 <span>{post.category}</span>
                 <span aria-hidden>·</span>
                 <time dateTime={post.date}>
-                  {formatDate(post.date, i18n.resolvedLanguage || 'uk')}
+                  {formatDate(post.date, i18n.resolvedLanguage || 'uk', SHORT_DATE)}
                 </time>
                 <span aria-hidden>·</span>
                 <span>{post.readTime}</span>

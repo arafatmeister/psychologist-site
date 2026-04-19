@@ -12,6 +12,7 @@ import HomePage from '../pages/HomePage';
 const BlogPage = lazy(() => import('../pages/BlogPage'));
 const PrivacyPage = lazy(() => import('../pages/PrivacyPage'));
 const TermsPage = lazy(() => import('../pages/TermsPage'));
+const ParentalConsentPage = lazy(() => import('../pages/ParentalConsentPage'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 
 function AppRouterBody() {
@@ -35,6 +36,7 @@ function AppRouterBody() {
             <Route path={ROUTES.blog} element={<BlogPage />} />
             <Route path={ROUTES.privacy} element={<PrivacyPage />} />
             <Route path={ROUTES.terms} element={<TermsPage />} />
+            <Route path={ROUTES.parentalConsent} element={<ParentalConsentPage />} />
             <Route path={ROUTES.notFound} element={<NotFoundPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

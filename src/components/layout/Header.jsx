@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ROUTES } from '../../config/routes';
-import { SITE } from '../../config/site';
 import { useScrollTrigger } from '../../lib/useScrollTrigger';
 import { Button } from '../ui/Button';
 import { Eyebrow } from '../ui/Eyebrow';
@@ -37,7 +36,7 @@ export function Header() {
         <div className="flex items-center justify-between gap-6">
           <Link to={ROUTES.home} className="flex min-w-0 flex-col leading-none">
             <span className="truncate text-[18px] font-medium tracking-tight text-ink-900">
-              {SITE.name}
+              {t('personName')}
             </span>
             <Eyebrow className="mt-1 text-[11px] tracking-[0.1em]">{t('header.role')}</Eyebrow>
           </Link>

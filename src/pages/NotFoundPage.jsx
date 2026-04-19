@@ -17,7 +17,7 @@ export default function NotFoundPage() {
         description={t('seo.notFound.description')}
         noindex
       />
-      <Container className="py-24 text-center">
+      <Container className="pt-12 md:pt-20 pb-24 text-center">
         <h1 className="text-[1.75rem] leading-[1.15] md:text-3xl md:leading-[1.1] lg:text-4xl lg:leading-[1.05]">
           404
         </h1>

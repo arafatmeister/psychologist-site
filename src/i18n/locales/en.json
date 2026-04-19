@@ -1,4 +1,5 @@
 {
+  "personName": "Yaroslav Doroshenko",
   "header": {
     "role": "Existential Psychologist",
     "nav": {
@@ -20,7 +21,7 @@
     "subtitle": "Individual counseling, couples work, adolescent support, and psychedelic integration.",
     "ctaBook": "Book session",
     "ctaFree": "Free 15-minute intro call",
-    "note": "A\u00A015-minute intro to understand your request. I'll reply within 24\u00A0hours.",
+    "note": "A\u00A015-minute intro to understand your request.<br />I'll reply within 24\u00A0hours.",
     "photoCaption": "— Kyiv, 2024",
     "photoAlt": "Yaroslav Doroshenko portrait"
   },
@@ -152,7 +153,7 @@
         },
         {
           "question": "Are sessions confidential?",
-          "answer": "Yes. Everything you share stays between us. Exceptions are described in the Privacy Policy."
+          "answer": "Yes. Everything you share stays between us. Exceptions are described in the <privacy>Privacy Policy</privacy>."
         },
         {
           "question": "Can I cancel a session?",
@@ -197,74 +198,109 @@
     "about": "A confidential online space for honest conversations about crisis, relationships, and meaning.",
     "copyright": "© {{year}} {{name}}. Online sessions worldwide. Confidential.",
     "privacy": "Privacy Policy",
-    "terms": "Terms of Use",
+    "terms": "Public Offer",
+    "parentalConsent": "Parental Consent",
     "confidential": "Confidential"
   },
+  "legal": {
+    "version": "Version {{version}}",
+    "updatedAt": "Updated: {{date}}",
+    "openPdf": "Open PDF",
+    "openPdfAria": "Open PDF document in a new tab"
+  },
   "privacy": {
-    "title": "Privacy Policy",
-    "description": "How personal data is processed when you contact us through the site.",
-    "updatedAt": "Updated: April 18, 2026",
+    "eyebrow": "Documents",
+    "title": "Privacy Policy and Code of Ethics",
+    "intro": "Trust is the foundation of our work. This document explains how I handle your information and the ethical principles I follow in my practice.",
     "sections": [
       {
-        "title": "What data is collected",
-        "content": "We only collect the data you voluntarily submit in the form: name, contact (email or Telegram), and message text."
+        "title": "1. Principle of Confidentiality",
+        "content": "Everything you share during sessions remains strictly between us. I do not disclose your name, the content of our conversations, or the fact that you have sought my services."
       },
       {
-        "title": "Purpose of processing",
-        "content": "Data is used solely to respond to your request, schedule consultations, and continue communication initiated by you."
+        "title": "Exceptions to Confidentiality",
+        "content": "Pursuant to legislation and professional ethics — a clear risk of harm to yourself (suicidal intent) or to others; reports of the commission of a serious crime; receipt of an official request from law enforcement agencies in accordance with the current legislation of Ukraine; professional supervision — discussing complex cases with expert colleagues — in which all data is strictly anonymized and your name and any identifying details are never revealed."
       },
       {
-        "title": "Legal basis",
-        "content": "Processing is based on your consent under Article 6(1)(a) GDPR and applicable Ukrainian personal data law."
+        "title": "1.1. Confidentiality in Specific Cases",
+        "content": "Features of family therapy: when working with a couple, confidentiality extends to both partners; the psychologist shall not disclose information received from one partner to third parties. The initiating partner (who scheduled the first session) is responsible for ensuring the other partner is aware of this Policy before joint work begins. The psychologist adheres to a \"No Secrets\" principle within the couple: information shared by one partner in an individual conversation may be brought to a joint discussion if it is necessary to achieve therapeutic goals.\n\nConfidentiality in working with minors: parents or legal guardians are responsible for explaining the essence of this Privacy Policy to the child in an accessible way, considering their age and development. The content of conversations with a minor is confidential. Parents have the right to receive general updates on counseling progress, but specific details of conversations are disclosed to them only with the child's consent or in cases where there is a threat to the child's life or health."
       },
       {
-        "title": "Retention period",
-        "content": "Data is retained for as long as needed to process your request or until consent is withdrawn / deletion is requested."
+        "title": "2. Data Collection and Storage",
+        "content": "I only collect data necessary for communication (name, phone number, e-mail). Your contact details are never transferred to third parties for marketing or advertising purposes. Any notes I may take during a session for professional purposes are stored in a secure location without including your last name."
       },
       {
-        "title": "Third-party services",
-        "content": "Cloudflare Turnstile may be used for form protection (necessary). Vercel Analytics is loaded only after your analytics consent."
+        "title": "3. Professional Boundaries",
+        "content": "I do not enter into friendly, romantic, or business relationships with Clients outside of therapy. If we happen to meet in a public place, I will not greet you first. This is to avoid putting you in an awkward position and to keep the fact of our professional relationship private."
       },
       {
-        "title": "Your rights",
-        "content": "You may request access, correction, restriction, deletion, and withdrawal of consent at any time."
+        "title": "4. The \"Do No Harm\" Principle",
+        "content": "I practice only within the scope of my competence. If I feel that your request requires the assistance of another specialist (e.g., a psychiatrist, endocrinologist, or lawyer), I will inform you and provide the appropriate recommendations."
       },
       {
         "title": "Contact",
-        "content": "For data-related requests, contact us at {{email}}."
+        "content": "For data-related requests, contact us at <email>{{email}}</email>."
       }
     ]
   },
   "terms": {
-    "title": "Terms of Use",
-    "description": "Terms for accessing the site and contacting through the request form.",
-    "updatedAt": "Updated: April 18, 2026",
+    "eyebrow": "Documents",
+    "title": "Public Offer Agreement for Psychological Counseling Services",
+    "intro": "This document constitutes an official and public offer (the \"Offer\") by psychologist Yaroslav Doroshenko (the \"Service Provider\") to any individual (the \"Client\") who accepts the terms of this Agreement.",
     "sections": [
       {
-        "title": "Website purpose",
-        "content": "This website is informational and does not replace medical care or emergency intervention."
+        "title": "1. Subject of the Agreement",
+        "content": "1.1. The Service Provider undertakes to provide psychological counseling services, and the Client undertakes to accept and pay for them under the terms specified in this Offer.\n\n1.2. Services may be provided either in person or remotely (via video communication)."
       },
       {
-        "title": "Form submissions",
-        "content": "By submitting the form, you confirm the accuracy of your information and agree to data processing under the Privacy Policy."
+        "title": "2. Acceptance Procedure",
+        "content": "2.1. Full and unconditional acceptance of this Offer is deemed to occur when the Client makes payment for the first consultation, completes the registration form on the website, or schedules a consultation.\n\n2.2. Upon acceptance, the Agreement is considered concluded in written form.\n\n2.3. Family counseling. In the event of a couple (two partners) booking a consultation, the payment for the service or the physical presence of both partners at the session is considered full and unconditional acceptance of the terms of this Offer by both participants. The partner who makes the booking or payment assumes the obligation to familiarize the other partner with the text of this Offer and the <privacy>Privacy Policy</privacy>.\n\n2.4. Working with minors. If the recipient of the services is under the age of 18, acceptance of the Offer shall be carried out by their parents or legal guardians. By entering into this Agreement, the parents (guardians) confirm their consent for providing psychological assistance to the child and undertake to facilitate compliance with the terms of the Agreement. The consent form is available on the <parentalConsent>Parental Consent</parentalConsent> page."
       },
       {
-        "title": "Confidentiality",
-        "content": "Both parties commit to confidentiality within legal and professional ethical boundaries."
+        "title": "3. Rights and Obligations of the Parties",
+        "content": "The Service Provider undertakes to: provide professional psychological assistance in accordance with ethical standards; maintain full confidentiality (except in cases provided for by the <privacy>Privacy Policy</privacy>).\n\nThe Client undertakes to: attend sessions on time; notify the Service Provider of any cancellation or rescheduling no later than 24 hours prior to the scheduled start time; be sincere and actively work on their request."
       },
       {
-        "title": "Limitation of liability",
-        "content": "The site owner is not liable for technical outages, third-party service unavailability, or temporary response delays."
+        "title": "4. Cost of Services and Payment Terms",
+        "content": "4.1. The cost of consultations is indicated on the website in the pricing section (or communicated when booking the first consultation).\n\n4.2. Payment is made via 100% prepayment or in another manner by prior agreement.\n\n4.3. In the event of a cancellation by the Client less than 24 hours before the session, the fee for the consultation is non-refundable (or remains payable at 100% of the cost)."
       },
       {
-        "title": "Updates",
-        "content": "These terms may be updated. The latest version is always published on this page."
+        "title": "5. Liability of the Parties",
+        "content": "5.1. The psychologist is not liable for how the Client utilizes the information received or for the decisions the Client makes in their personal life.\n\n5.2. Important note: psychological counseling is not medical aid and does not replace treatment by a psychiatrist or other medical doctors."
       },
       {
         "title": "Contacts",
-        "content": "For organizational questions, contact {{email}} or Telegram {{telegramHandle}}."
+        "content": "For organizational questions, contact <email>{{email}}</email> or Telegram <tg>{{telegramHandle}}</tg>."
       }
     ]
+  },
+  "parentalConsent": {
+    "eyebrow": "Documents",
+    "title": "Parental Consent<br />(legal representatives)",
+    "subtitle": "For psychological counseling or assessment of a minor",
+    "intro": "If the client is under 18, written consent from one parent or legal guardian is required before work begins. Below is a short process overview and a link to download the form.",
+    "processTitle": "How it works",
+    "processSteps": [
+      "Download the consent PDF form using the link below.",
+      "Fill in the form by hand or on a computer and sign it. For teenagers older than 14, adding the child's own signature next to the parent's can support the therapeutic alliance.",
+      "If the parents are divorced, it is ideally better to obtain consent from both, or make sure the signing parent has legal authority and the other parent does not object to therapy.",
+      "Send a scan or photo of the signed document to <email>{{email}}</email> or via Telegram <tg>{{telegramHandle}}</tg> before the first session."
+    ],
+    "containsTitle": "What the document includes",
+    "containsItems": [
+      "Details of one parent or legal guardian and details of the child.",
+      "Confirmation of voluntary consent to psychological services (individual counseling, psychological assessment, corrective sessions, therapeutic process).",
+      "Parents' obligation to explain counseling and the <privacy>Privacy Policy</privacy> to the child in an age-appropriate way.",
+      "Information access rules: general progress can be shared with parents, while conversation details are disclosed only with the child's consent or when there is a risk to the child's life or health.",
+      "Consent to discuss the case within professional supervision with full anonymization of personal data.",
+      "Confirmation of acknowledgment of the <terms>Public Offer</terms> and the <privacy>Privacy Policy</privacy>.",
+      "The right to withdraw consent at any time by written or verbal notice."
+    ],
+    "ctaOpen": "Open consent form (PDF)",
+    "referencesTitle": "Related documents",
+    "privacyLink": "Privacy Policy",
+    "termsLink": "Public Offer",
+    "questions": "If you have questions, please email <email>{{email}}</email> or message in Telegram <tg>{{telegramHandle}}</tg>."
   },
   "a11y": {
     "openMenu": "Open menu",
@@ -285,8 +321,12 @@
       "description": "How personal data is processed when you use this website."
     },
     "terms": {
-      "title": "Terms of Use | {{name}}",
-      "description": "Rules for website usage and submitting contact requests."
+      "title": "Public Offer | {{name}}",
+      "description": "Terms for psychological counseling services, acceptance, and payment procedures."
+    },
+    "parentalConsent": {
+      "title": "Parental consent for a minor's counseling | {{name}}",
+      "description": "Consent form for parents or legal representatives to start psychological work with a minor."
     },
     "blog": {
       "title": "Blog | {{name}}",

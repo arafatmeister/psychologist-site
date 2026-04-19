@@ -1,8 +1,9 @@
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { Button } from '../ui/Button';
 import { Eyebrow } from '../ui/Eyebrow';
 import { Container } from '../layout/Container';
 import { useInView } from '../../lib/useInView';
+import { RICH_COMPONENTS } from '../../lib/richText';
 
 export function Hero() {
   const { t } = useTranslation();
@@ -40,7 +41,9 @@ export function Hero() {
             </a>
           </div>
 
-          <p className="mt-5 font-serif text-base italic text-ink-500">{t('hero.note')}</p>
+          <p className="mt-5 font-serif text-base italic text-ink-500">
+            <Trans i18nKey="hero.note" components={RICH_COMPONENTS} />
+          </p>
         </div>
 
         <figure className="min-w-0">

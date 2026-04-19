@@ -4,14 +4,9 @@ import { ROUTES } from '../config/routes';
 import { SEO } from '../components/SEO/SEO';
 import { StructuredData } from '../components/SEO/StructuredData';
 import { Container } from '../components/layout/Container';
+import { formatDate } from '../lib/formatDate';
 
-function formatDate(date, locale) {
-  return new Intl.DateTimeFormat(locale === 'uk' ? 'uk-UA' : 'en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  }).format(new Date(date));
-}
+const SHORT_DATE = { year: 'numeric', month: 'short', day: 'numeric' };
 
 export default function BlogPage() {
   const { t, i18n } = useTranslation();
@@ -31,7 +26,7 @@ export default function BlogPage() {
         ]}
       />
 
-      <Container className="py-20 md:py-28">
+      <Container className="pt-12 md:pt-20 pb-20 md:pb-28">
         <h1 className="text-[1.75rem] leading-[1.15] md:text-3xl md:leading-[1.1] lg:text-4xl lg:leading-[1.05]">
           {t('sections.blog.title')}
         </h1>
@@ -47,7 +42,7 @@ export default function BlogPage() {
                 <span>{post.category}</span>
                 <span aria-hidden>·</span>
                 <time dateTime={post.date}>
-                  {formatDate(post.date, i18n.resolvedLanguage || 'uk')}
+                  {formatDate(post.date, i18n.resolvedLanguage || 'uk', SHORT_DATE)}
                 </time>
                 <span aria-hidden>·</span>
                 <span>{post.readTime}</span>
