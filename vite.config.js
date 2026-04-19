@@ -80,6 +80,24 @@ export default defineConfig({
         'icon-512.png',
       ],
       manifest: false,
+      workbox: {
+        // SPA fallback: any navigation request the SW can't match returns the
+        // cached index.html so React Router can render the correct route.
+        navigateFallback: '/index.html',
+        // Exceptions: never hijack navigation for real file requests (PDFs,
+        // sitemap, robots) and never rewrite explicit extension URLs.
+        navigateFallbackDenylist: [/^\/docs\//, /\.[a-z0-9]+$/i, /^\/api\//],
+        // Do not precache the PDFs — they can be large and should be fetched
+        // live. Precache keeps only app shell + static icons.
+        globIgnores: ['**/docs/**'],
+        // Drop stale caches from previous deploys so users do not get old
+        // index.html with missing routes.
+        cleanupOutdatedCaches: true,
+        // Take control of the page on first activation, so a fresh deploy is
+        // picked up on the next reload without a second refresh.
+        clientsClaim: true,
+        skipWaiting: true,
+      },
     }),
   ],
   build: {
