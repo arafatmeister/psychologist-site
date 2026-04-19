@@ -22,6 +22,19 @@ const ONE_HOUR_MS = 3_600_000;
 const MAX_SUBMITS_PER_HOUR = 5;
 const TURNSTILE_TEST_SITE_KEY = '1x00000000000000000000AA';
 
+function getTurnstileSiteKey() {
+  const configured = import.meta.env.VITE_TURNSTILE_SITE_KEY;
+  if (configured) {
+    return configured;
+  }
+  if (import.meta.env.PROD) {
+    logger.error(
+      '[contact] VITE_TURNSTILE_SITE_KEY is missing at build time — falling back to Cloudflare test key. Rebuild with the env variable present.',
+    );
+  }
+  return TURNSTILE_TEST_SITE_KEY;
+}
+
 function isTurnstileBypassed() {
   if (import.meta.env.VITE_TURNSTILE_BYPASS === 'true') return true;
   if (typeof window === 'undefined') return false;
@@ -253,6 +266,8 @@ export function ContactForm() {
                   {t('form.consentBefore')}
                   <Link
                     to={ROUTES.privacy}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="underline decoration-ink-400 underline-offset-2 hover:decoration-ink-900"
                   >
                     {t('form.consentLink')}
@@ -270,7 +285,7 @@ export function ContactForm() {
             {!turnstileBypass && (
               <div className="max-h-[72px] opacity-80">
                 <Turnstile
-                  siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY || TURNSTILE_TEST_SITE_KEY}
+                  siteKey={getTurnstileSiteKey()}
                   options={{ theme: 'light', size: 'compact' }}
                   onSuccess={(token) => setTurnstileToken(token)}
                   onError={() => {

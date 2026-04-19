@@ -13,7 +13,7 @@ export function Footer() {
     <footer role="contentinfo" className="on-dark mt-0 bg-ink-900 py-20 text-ink-300">
       <Container className="grid gap-10 md:grid-cols-2">
         <div>
-          <p className="text-2xl text-paper">{SITE.name}</p>
+          <p className="text-2xl text-paper">{t('personName')}</p>
           <Eyebrow className="mt-2" style={{ color: 'var(--color-ink-200)' }}>
             {t('header.role')}
           </Eyebrow>
@@ -34,6 +34,12 @@ export function Footer() {
           >
             {t('footer.terms')}
           </Link>
+          <Link
+            to={ROUTES.parentalConsent}
+            className="w-fit underline decoration-ink-500 underline-offset-4 transition-colors hover:text-paper hover:decoration-paper"
+          >
+            {t('footer.parentalConsent')}
+          </Link>
           <a
             href={SITE.telegramUrl}
             target="_blank"
@@ -53,7 +59,7 @@ export function Footer() {
 
       <Container className="mt-16 flex flex-col justify-between gap-4 border-t border-ink-700 pt-8 text-sm text-ink-300 md:flex-row md:items-center">
         <span>
-          © {new Date().getFullYear()} {SITE.author} · {t('footer.confidential')}
+          © {new Date().getFullYear()} {t('personName')} · {t('footer.confidential')}
         </span>
         <LanguageSwitcher variant="dark" />
       </Container>
