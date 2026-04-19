@@ -93,6 +93,7 @@ export function ContactForm() {
   const [status, setStatus] = useState({ type: null, message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState(turnstileBypass ? 'bypass-token' : '');
+  const [isTurnstileVerified, setIsTurnstileVerified] = useState(turnstileBypass);
   const schema = useMemo(() => createContactSchema(t), [t]);
 
   const {
@@ -154,6 +155,7 @@ export function ContactForm() {
         _csrf: getCsrfToken(),
       });
       setTurnstileToken(turnstileBypass ? 'bypass-token' : '');
+      setIsTurnstileVerified(turnstileBypass);
       setSubmitted(true);
     } catch (error) {
       logger.error('[contact] submit failed', error);
@@ -283,17 +285,38 @@ export function ContactForm() {
             </div>
 
             {!turnstileBypass && (
-              <div className="max-h-[72px] opacity-80">
-                <Turnstile
-                  siteKey={getTurnstileSiteKey()}
-                  options={{ theme: 'light', size: 'compact' }}
-                  onSuccess={(token) => setTurnstileToken(token)}
-                  onError={() => {
-                    logger.warn('[contact] turnstile error');
-                    setTurnstileToken('');
-                  }}
-                  onExpire={() => setTurnstileToken('')}
-                />
+              <div className="space-y-3">
+                <div className={isTurnstileVerified ? 'hidden' : 'w-full max-w-[320px]'}>
+                  <Turnstile
+                    siteKey={getTurnstileSiteKey()}
+                    options={{ theme: 'light', size: 'flexible', appearance: 'interaction-only' }}
+                    onSuccess={(token) => {
+                      setTurnstileToken(token);
+                      setIsTurnstileVerified(true);
+                    }}
+                    onError={() => {
+                      logger.warn('[contact] turnstile error');
+                      setTurnstileToken('');
+                      setIsTurnstileVerified(false);
+                    }}
+                    onExpire={() => {
+                      setTurnstileToken('');
+                      setIsTurnstileVerified(false);
+                    }}
+                  />
+                </div>
+
+                {isTurnstileVerified && (
+                  <div className="inline-flex items-center gap-2 rounded-sm border border-ink-200 bg-paper-2 px-3 py-2 text-sm text-ink-700">
+                    <span
+                      aria-hidden
+                      className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-ink-900 text-[12px] text-paper"
+                    >
+                      ✓
+                    </span>
+                    <span>{t('form.turnstileVerified')}</span>
+                  </div>
+                )}
               </div>
             )}
 

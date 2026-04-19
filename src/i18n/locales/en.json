@@ -173,6 +173,7 @@
     "consentBefore": "I agree to personal data processing according to the\u00A0",
     "consentLink": "Privacy Policy",
     "consentAfter": ".",
+    "turnstileVerified": "Verified by Cloudflare Turnstile",
     "submit": "Send request",
     "successTitle": "Thank you. I will reply within 24 hours.",
     "successHint": "Your request is received. For urgent questions, message me on Telegram.",

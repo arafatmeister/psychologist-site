@@ -173,6 +173,7 @@
     "consentBefore": "Я погоджуюсь на обробку персональних даних згідно з\u00A0",
     "consentLink": "Політикою конфіденційності",
     "consentAfter": ".",
+    "turnstileVerified": "Перевірено Cloudflare Turnstile",
     "submit": "Надіслати заявку",
     "successTitle": "Дякую. Відповім протягом 24\u00A0годин.",
     "successHint": "Заявку отримано. Якщо потрібно терміново, продублюйте повідомлення в Telegram.",
