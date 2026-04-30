@@ -7,6 +7,7 @@ import { Eyebrow } from '../ui/Eyebrow';
 import { useInView } from '../../lib/useInView';
 import { formatDate } from '../../lib/formatDate';
 import { useSanityContent } from '../../lib/sanityContentContext';
+import { BlogSkeleton } from '../ui/SectionSkeleton';
 
 const SHORT_DATE = { year: 'numeric', month: 'short', day: 'numeric' };
 
@@ -16,7 +17,7 @@ export function Blog() {
   const { ref, inView } = useInView();
 
   if (!SITE.features?.blog) return null;
-  if (!homePage) return null;
+  if (!homePage) return <BlogSkeleton />;
 
   return (
     <section

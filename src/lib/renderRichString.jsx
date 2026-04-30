@@ -5,8 +5,8 @@ import { SITE } from '../config/site';
 const LINK_CLASS =
   'text-ink-900 underline decoration-ink-400 underline-offset-4 transition-colors hover:decoration-ink-900';
 
-const TAG_REGEX =
-  /<(privacy|terms|parentalConsent|email|tg|br)(\s*\/)?>((?:(?!<\/\1>).)*)(<\/\1>)?/g;
+const SELF_CLOSING_REGEX = /<(br)\s*\/?>/g;
+const PAIRED_REGEX = /<(privacy|terms|parentalConsent|email|tg)>([^<]+)<\/\1>/g;
 
 const wrap = (tag, content, key) => {
   switch (tag) {
@@ -55,16 +55,25 @@ const wrap = (tag, content, key) => {
 
 export function renderRichString(text) {
   if (!text) return null;
-  const parts = [];
+  const tokens = [];
   let lastIndex = 0;
-  let match;
   let i = 0;
-  const re = new RegExp(TAG_REGEX);
-  while ((match = re.exec(text)) !== null) {
-    if (match.index > lastIndex) parts.push(text.slice(lastIndex, match.index));
-    parts.push(wrap(match[1], match[3] || '', `t${i++}`));
-    lastIndex = re.lastIndex;
+
+  const matches = [];
+  for (const m of text.matchAll(PAIRED_REGEX)) {
+    matches.push({ start: m.index, end: m.index + m[0].length, tag: m[1], content: m[2] });
   }
-  if (lastIndex < text.length) parts.push(text.slice(lastIndex));
-  return parts;
+  for (const m of text.matchAll(SELF_CLOSING_REGEX)) {
+    matches.push({ start: m.index, end: m.index + m[0].length, tag: m[1], content: '' });
+  }
+  matches.sort((a, b) => a.start - b.start);
+
+  for (const m of matches) {
+    if (m.start < lastIndex) continue;
+    if (m.start > lastIndex) tokens.push(text.slice(lastIndex, m.start));
+    tokens.push(wrap(m.tag, m.content, `t${i++}`));
+    lastIndex = m.end;
+  }
+  if (lastIndex < text.length) tokens.push(text.slice(lastIndex));
+  return tokens;
 }

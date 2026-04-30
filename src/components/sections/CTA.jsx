@@ -3,12 +3,13 @@ import { Eyebrow } from '../ui/Eyebrow';
 import { Container } from '../layout/Container';
 import { useInView } from '../../lib/useInView';
 import { useSanityContent } from '../../lib/sanityContentContext';
+import { CTASkeleton } from '../ui/SectionSkeleton';
 
 export function CTA() {
   const { homePage } = useSanityContent();
   const { ref, inView } = useInView();
 
-  if (!homePage) return null;
+  if (!homePage) return <CTASkeleton />;
 
   return (
     <section
@@ -16,8 +17,8 @@ export function CTA() {
       className={`on-dark bg-ink-800 py-20 text-paper md:py-28 fade-in-section ${inView ? 'is-visible' : ''}`}
     >
       <Container className="text-center md:max-w-[780px]">
-        <Eyebrow className="text-ink-300">{homePage.ctaEyebrow}</Eyebrow>
-        <p className="mt-8 italic-display text-xl leading-[1.45] md:text-2xl md:leading-[1.4]">
+        <Eyebrow className="text-paper-3">{homePage.ctaEyebrow}</Eyebrow>
+        <p className="mt-8 italic-display text-xl leading-[1.45] text-paper md:text-2xl md:leading-[1.4]">
           «{homePage.ctaBody}»
         </p>
         <div className="mt-12">

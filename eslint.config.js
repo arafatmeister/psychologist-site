@@ -15,6 +15,10 @@ export default defineConfig([
     '.playwright',
     'public',
     '.husky',
+    'studio/node_modules',
+    'studio/dist',
+    'studio/.sanity',
+    'node_modules',
   ]),
   {
     files: ['**/*.{js,jsx}'],

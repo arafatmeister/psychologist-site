@@ -3,13 +3,14 @@ import { Chevron } from '../ui/Chevron';
 import { Eyebrow } from '../ui/Eyebrow';
 import { useInView } from '../../lib/useInView';
 import { useSanityContent } from '../../lib/sanityContentContext';
+import { FAQSkeleton } from '../ui/SectionSkeleton';
 import { renderRichString } from '../../lib/renderRichString';
 
 export function FAQ() {
   const { homePage, faqs } = useSanityContent();
   const { ref, inView } = useInView();
 
-  if (!homePage) return null;
+  if (!homePage) return <FAQSkeleton />;
 
   return (
     <section

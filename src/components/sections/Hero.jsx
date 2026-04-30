@@ -3,12 +3,13 @@ import { Eyebrow } from '../ui/Eyebrow';
 import { Container } from '../layout/Container';
 import { useInView } from '../../lib/useInView';
 import { useSanityContent } from '../../lib/sanityContentContext';
+import { HeroSkeleton } from '../ui/SectionSkeleton';
 
 export function Hero() {
   const { homePage } = useSanityContent();
   const { ref, inView } = useInView();
 
-  if (!homePage) return null;
+  if (!homePage) return <HeroSkeleton />;
 
   return (
     <section

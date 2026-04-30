@@ -6,6 +6,7 @@ export const SanityContentContext = createContext({
   faqs: [],
   posts: [],
   isLoading: true,
+  error: null,
 });
 
 export const useSanityContent = () => useContext(SanityContentContext);

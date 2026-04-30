@@ -1,6 +1,7 @@
 export const ROUTES = {
   home: '/',
   blog: '/blog',
+  blogPost: '/blog/:slug',
   privacy: '/privacy',
   terms: '/terms',
   parentalConsent: '/parental-consent',

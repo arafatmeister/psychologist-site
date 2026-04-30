@@ -67,17 +67,6 @@ export const post = {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'cover',
-      title: 'Обкладинка',
-      type: 'image',
-      options: { hotspot: true },
-    },
-    {
-      name: 'coverAlt',
-      title: 'Alt-текст обкладинки',
-      type: 'string',
-    },
-    {
       name: 'body',
       title: 'Текст посту',
       type: 'array',
@@ -99,9 +88,9 @@ export const post = {
     },
   ],
   preview: {
-    select: { title: 'title', subtitle: 'language', media: 'cover' },
-    prepare({ title, subtitle, media }) {
-      return { title, subtitle: subtitle?.toUpperCase(), media };
+    select: { title: 'title', subtitle: 'language' },
+    prepare({ title, subtitle }) {
+      return { title, subtitle: subtitle?.toUpperCase() };
     },
   },
   orderings: [

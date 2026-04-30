@@ -2,12 +2,13 @@ import { Container } from '../layout/Container';
 import { Eyebrow } from '../ui/Eyebrow';
 import { useInView } from '../../lib/useInView';
 import { useSanityContent } from '../../lib/sanityContentContext';
+import { TrustSkeleton } from '../ui/SectionSkeleton';
 
 export function WhyTrustMe() {
   const { homePage } = useSanityContent();
   const { ref, inView } = useInView();
 
-  if (!homePage) return null;
+  if (!homePage) return <TrustSkeleton />;
   const facts = homePage.trustFacts || [];
 
   return (

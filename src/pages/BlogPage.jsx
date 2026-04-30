@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { SITE } from '../config/site';
 import { ROUTES } from '../config/routes';
@@ -50,7 +51,9 @@ export default function BlogPage() {
                 {post.readTime && <span>{post.readTime}</span>}
               </div>
               <h2 id={post.slug} className="mt-4 text-2xl leading-snug">
-                {post.title}
+                <Link to={`${ROUTES.blog}/${post.slug}`} className="hover:text-ink-700">
+                  {post.title}
+                </Link>
               </h2>
               <p className="mt-3 text-ink-500">{post.teaser}</p>
             </article>

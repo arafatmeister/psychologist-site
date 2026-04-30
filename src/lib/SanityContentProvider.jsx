@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { sanityClient, sanityEnabled } from './sanity';
 import { SanityContentContext } from './sanityContentContext';
+import { logger } from './logger';
 
 const HOME_QUERY = `{
   "homePage": *[_type == "homePage" && language == $lang][0],
@@ -22,21 +23,28 @@ const pickLocale = (obj, lang) => {
   return obj[lang] || obj.uk || obj.en || '';
 };
 
+const INITIAL_STATE = {
+  homePage: null,
+  services: [],
+  faqs: [],
+  posts: [],
+  isLoading: false,
+  error: null,
+};
+
 export function SanityContentProvider({ children }) {
   const { i18n } = useTranslation();
   const lang = i18n.resolvedLanguage || 'uk';
   const [state, setState] = useState({
-    homePage: null,
-    services: [],
-    faqs: [],
-    posts: [],
+    ...INITIAL_STATE,
     isLoading: sanityEnabled,
+    error: sanityEnabled ? null : new Error('Sanity is not configured'),
   });
 
   useEffect(() => {
     if (!sanityEnabled) return;
     let cancelled = false;
-    setState((s) => ({ ...s, isLoading: true }));
+    setState((s) => ({ ...s, isLoading: true, error: null }));
     sanityClient
       .fetch(HOME_QUERY, { lang })
       .then((data) => {
@@ -58,10 +66,12 @@ export function SanityContentProvider({ children }) {
           })),
           posts: data.posts || [],
           isLoading: false,
+          error: null,
         });
       })
-      .catch(() => {
-        if (!cancelled) setState((s) => ({ ...s, isLoading: false }));
+      .catch((err) => {
+        logger.error('Sanity fetch failed', err);
+        if (!cancelled) setState((s) => ({ ...s, isLoading: false, error: err }));
       });
     return () => {
       cancelled = true;

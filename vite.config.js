@@ -8,8 +8,20 @@ import { VitePWA } from 'vite-plugin-pwa';
 function manualChunks(id) {
   if (!id.includes('node_modules')) return undefined;
 
-  if (id.includes('react-router-dom') || id.includes('/react/') || id.includes('/react-dom/')) {
+  if (id.includes('/react-router-dom/') || id.includes('/react/') || id.includes('/react-dom/')) {
     return 'react';
+  }
+
+  if (id.includes('/react-helmet-async/')) {
+    return 'helmet';
+  }
+
+  if (id.includes('/@sanity/client/') || id.includes('/@sanity/image-url/')) {
+    return 'sanity';
+  }
+
+  if (id.includes('/@portabletext/react/')) {
+    return 'portable-text';
   }
 
   if (

@@ -10,6 +10,7 @@ import { ScrollToTop } from '../lib/ScrollToTop';
 import HomePage from '../pages/HomePage';
 
 const BlogPage = lazy(() => import('../pages/BlogPage'));
+const BlogPostPage = lazy(() => import('../pages/BlogPostPage'));
 const PrivacyPage = lazy(() => import('../pages/PrivacyPage'));
 const TermsPage = lazy(() => import('../pages/TermsPage'));
 const ParentalConsentPage = lazy(() => import('../pages/ParentalConsentPage'));
@@ -24,6 +25,14 @@ function AppRouterBody() {
       <HashScroll />
       <a
         href="#main"
+        onClick={(e) => {
+          e.preventDefault();
+          const main = document.getElementById('main');
+          if (main) {
+            main.focus();
+            main.scrollIntoView({ block: 'start' });
+          }
+        }}
         className="sr-only left-4 top-4 bg-ink-900 px-4 py-2 text-paper focus:not-sr-only focus:absolute"
       >
         {t('a11y.skipToMain')}
@@ -34,6 +43,7 @@ function AppRouterBody() {
           <Routes>
             <Route path={ROUTES.home} element={<HomePage />} />
             <Route path={ROUTES.blog} element={<BlogPage />} />
+            <Route path={ROUTES.blogPost} element={<BlogPostPage />} />
             <Route path={ROUTES.privacy} element={<PrivacyPage />} />
             <Route path={ROUTES.terms} element={<TermsPage />} />
             <Route path={ROUTES.parentalConsent} element={<ParentalConsentPage />} />

@@ -3,12 +3,13 @@ import { Eyebrow } from '../ui/Eyebrow';
 import { OrdinalNumber } from '../ui/OrdinalNumber';
 import { useInView } from '../../lib/useInView';
 import { useSanityContent } from '../../lib/sanityContentContext';
+import { HelpWithSkeleton } from '../ui/SectionSkeleton';
 
 export function HelpWith() {
   const { homePage } = useSanityContent();
   const { ref, inView } = useInView();
 
-  if (!homePage) return null;
+  if (!homePage) return <HelpWithSkeleton />;
   const items = homePage.helpWithItems || [];
 
   return (
