@@ -13,6 +13,155 @@
       "telegram": "Telegram"
     }
   },
+  "hero": {
+    "eyebrow": "Online · UA / EN · Confidential",
+    "titleBefore": "Helping you through crises, ",
+    "titleEm": "reclaiming meaning",
+    "titleAfter": " and finding yourself.",
+    "subtitle": "Individual counseling, couples work, adolescent support, and psychedelic integration.",
+    "ctaBook": "Book session",
+    "ctaFree": "Free 15-minute intro call",
+    "note": "A\u00A015-minute intro to understand your request.<br />I'll reply within 24\u00A0hours.",
+    "photoCaption": "— Kyiv, 2024",
+    "photoAlt": "Yaroslav Doroshenko portrait"
+  },
+  "sections": {
+    "helpWith": {
+      "eyebrow": "How I can help",
+      "title": "Topics we can work with",
+      "items": [
+        {
+          "title": "Anxiety, loss of meaning, life crises",
+          "desc": "When old structures stop working, we rebuild inner clarity and a stable sense of direction."
+        },
+        {
+          "title": "Relationships, conflict, emotional distance",
+          "desc": "We map repeating dynamics and restore dialogue without blame."
+        },
+        {
+          "title": "Support for adolescents and parents",
+          "desc": "Support through identity shifts, boundaries, and high emotional tension at home."
+        },
+        {
+          "title": "Psychedelic integration",
+          "desc": "Making sense of intense experiences and integrating insights into everyday life."
+        }
+      ]
+    },
+    "services": {
+      "eyebrow": "Formats",
+      "title": "Services",
+      "subtitle": "Each format is tailored to your request and life context.",
+      "items": [
+        {
+          "format": "Individual",
+          "title": "Individual counseling",
+          "desc": "Deep work with anxiety, difficult choices, and periods of disorientation.",
+          "duration": "50 min",
+          "mode": "online · UA/EN"
+        },
+        {
+          "format": "Couples",
+          "title": "Couples counseling",
+          "desc": "A structured space to restore dialogue, respect, and clarity in relationships.",
+          "duration": "60 min",
+          "mode": "online · UA/EN"
+        },
+        {
+          "format": "Adolescents",
+          "title": "Adolescent counseling",
+          "desc": "Support through identity development, emotional swings, and family conflict.",
+          "duration": "50 min",
+          "mode": "online · UA/EN"
+        },
+        {
+          "format": "Integration",
+          "title": "Psychedelic integration",
+          "desc": "Grounding intense experiences and translating insight into practical change.",
+          "duration": "50 min",
+          "mode": "online · UA/EN"
+        }
+      ]
+    },
+    "trust": {
+      "eyebrow": "Trust",
+      "title": "Why clients trust me",
+      "quote": "For the first time in years, I could speak honestly about what was happening to me.",
+      "quoteAuthor": "client, 34",
+      "facts": [
+        { "value": "6+", "label": "years in practice" },
+        { "value": "400+", "label": "sessions" },
+        { "value": "2018", "label": "practice started" }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Start",
+      "body": "If what you read resonates, write to me. Even just to start with a short intro.",
+      "button": "Write to me"
+    },
+    "blog": {
+      "eyebrow": "Reading",
+      "title": "Blog",
+      "subtitle": "Essays to help you understand yourself in difficult periods.",
+      "readMore": "Read more",
+      "items": [
+        {
+          "category": "Crisis",
+          "date": "2026-03-02",
+          "readTime": "7 min",
+          "slug": "sense-in-crisis",
+          "title": "Finding meaning in crisis",
+          "teaser": "Practical orientation points when old foundations no longer work."
+        },
+        {
+          "category": "Anxiety",
+          "date": "2026-02-17",
+          "readTime": "6 min",
+          "slug": "what-anxiety-says",
+          "title": "What anxiety is really saying",
+          "teaser": "How to read persistent tension and respond with more precision."
+        },
+        {
+          "category": "Integration",
+          "date": "2026-01-28",
+          "readTime": "8 min",
+          "slug": "after-deep-experience",
+          "title": "After an intense experience: what next?",
+          "teaser": "Integration steps without losing contact with everyday reality."
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "Frequently asked questions",
+      "title": "Questions",
+      "items": [
+        {
+          "question": "How long does one session take?",
+          "answer": "A regular session takes 50 minutes. The first intro call is 15 minutes and free."
+        },
+        {
+          "question": "What is the consultation format?",
+          "answer": "Online via Zoom, Google Meet, or messenger of your choice. Audio or video."
+        },
+        {
+          "question": "Do you work in English?",
+          "answer": "Yes, sessions are available in Ukrainian and English. Select your language in the request form."
+        },
+        {
+          "question": "How quickly do you reply?",
+          "answer": "I reply to all requests within 24 hours, often on the same day."
+        },
+        {
+          "question": "Are sessions confidential?",
+          "answer": "Yes. Everything you share stays between us. Exceptions are described in the <privacy>Privacy Policy</privacy>."
+        },
+        {
+          "question": "Can I cancel a session?",
+          "answer": "Yes, free cancellation is possible up to 24 hours before the session. Later cancellations are charged in full."
+        }
+      ]
+    }
+  },
   "form": {
     "eyebrow": "Contact",
     "title": "Leave a request",
@@ -21,7 +170,7 @@
     "contact": "Email or Telegram",
     "contactHelp": "Use email or Telegram username.",
     "message": "Briefly describe your request",
-    "consentBefore": "I agree to personal data processing according to the ",
+    "consentBefore": "I agree to personal data processing according to the\u00A0",
     "consentLink": "Privacy Policy",
     "consentAfter": ".",
     "turnstileVerified": "Verified by Cloudflare Turnstile",
