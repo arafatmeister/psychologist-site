@@ -1,13 +1,16 @@
-import { useTranslation } from 'react-i18next';
 import { Container } from '../layout/Container';
 import { Eyebrow } from '../ui/Eyebrow';
 import { OrdinalNumber } from '../ui/OrdinalNumber';
 import { useInView } from '../../lib/useInView';
+import { useSanityContent } from '../../lib/sanityContentContext';
+import { HelpWithSkeleton } from '../ui/SectionSkeleton';
 
 export function HelpWith() {
-  const { t } = useTranslation();
-  const items = t('sections.helpWith.items', { returnObjects: true });
+  const { homePage } = useSanityContent();
   const { ref, inView } = useInView();
+
+  if (!homePage) return <HelpWithSkeleton />;
+  const items = homePage.helpWithItems || [];
 
   return (
     <section
@@ -15,9 +18,9 @@ export function HelpWith() {
       className={`bg-paper py-16 md:py-24 fade-in-section ${inView ? 'is-visible' : ''}`}
     >
       <Container>
-        <Eyebrow>{`01 · ${t('sections.helpWith.eyebrow')}`}</Eyebrow>
+        <Eyebrow>{`01 · ${homePage.helpWithEyebrow}`}</Eyebrow>
         <h2 className="mt-4 max-w-[24ch] text-[1.75rem] leading-[1.15] md:text-3xl md:leading-[1.1] lg:text-4xl lg:leading-[1.05]">
-          {t('sections.helpWith.title')}
+          {homePage.helpWithTitle}
         </h2>
 
         <ul className="mt-16 grid gap-x-16 gap-y-10 md:grid-cols-2">

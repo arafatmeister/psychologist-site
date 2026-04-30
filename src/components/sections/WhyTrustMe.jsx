@@ -1,12 +1,15 @@
-import { useTranslation } from 'react-i18next';
 import { Container } from '../layout/Container';
 import { Eyebrow } from '../ui/Eyebrow';
 import { useInView } from '../../lib/useInView';
+import { useSanityContent } from '../../lib/sanityContentContext';
+import { TrustSkeleton } from '../ui/SectionSkeleton';
 
 export function WhyTrustMe() {
-  const { t } = useTranslation();
-  const facts = t('sections.trust.facts', { returnObjects: true });
+  const { homePage } = useSanityContent();
   const { ref, inView } = useInView();
+
+  if (!homePage) return <TrustSkeleton />;
+  const facts = homePage.trustFacts || [];
 
   return (
     <section
@@ -14,18 +17,17 @@ export function WhyTrustMe() {
       className={`bg-paper py-16 md:py-24 fade-in-section ${inView ? 'is-visible' : ''}`}
     >
       <Container>
-        <Eyebrow>{t('sections.trust.eyebrow')}</Eyebrow>
+        <Eyebrow>{homePage.trustEyebrow}</Eyebrow>
         <h2 className="mt-4 text-center text-[1.75rem] leading-[1.15] md:text-3xl md:leading-[1.1] lg:text-4xl lg:leading-[1.05]">
-          {t('sections.trust.title')}
+          {homePage.trustTitle}
         </h2>
 
         <blockquote className="pullquote mx-auto mt-12 max-w-[52ch] text-center md:mt-16">
-          {/* TODO: replace with real testimonial after collecting consent */}
           <p className="italic-display text-xl leading-[1.45] text-ink-800 md:text-2xl md:leading-[1.4]">
-            «{t('sections.trust.quote')}»
+            «{homePage.trustQuote}»
           </p>
           <footer className="mt-6 text-sm not-italic text-ink-500">
-            — {t('sections.trust.quoteAuthor')}
+            — {homePage.trustQuoteAuthor}
           </footer>
         </blockquote>
 

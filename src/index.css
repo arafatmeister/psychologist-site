@@ -100,6 +100,10 @@ em,
   font-weight: 400;
 }
 
+.on-dark .italic-display {
+  font-weight: 500;
+}
+
 article,
 .prose {
   font-feature-settings: 'onum', 'ss01';
