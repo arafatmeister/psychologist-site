@@ -27,7 +27,7 @@ function escapeHtml(value) {
 }
 
 async function verifyTurnstile(token, ip) {
-  const secret = process.env.TURNSTILE_SECRET_KEY;
+  const secret = process.env.TURNSTILE_SECRET_KEY?.trim();
   if (!secret) {
     console.error('[contact] TURNSTILE_SECRET_KEY missing');
     return false;
@@ -40,8 +40,17 @@ async function verifyTurnstile(token, ip) {
 
   try {
     const res = await fetch(TURNSTILE_VERIFY_URL, { method: 'POST', body });
-    const data = await res.json();
-    return Boolean(data?.success);
+    const data = await res.json().catch(() => null);
+    if (!data?.success) {
+      console.error('[contact] turnstile rejected', {
+        httpStatus: res.status,
+        errorCodes: data?.['error-codes'],
+        secretLen: secret.length,
+        tokenLen: token.length,
+      });
+      return false;
+    }
+    return true;
   } catch (error) {
     console.error('[contact] turnstile verify failed', error);
     return false;
