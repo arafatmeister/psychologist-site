@@ -1,3 +1,9 @@
+function resolveContactEndpoint() {
+  const env = typeof import.meta !== 'undefined' ? import.meta.env : undefined;
+  if (!env) return null;
+  return env.VITE_CONTACT_ENDPOINT || (env.PROD ? '/api/contact' : null);
+}
+
 export const SITE = {
   domain: 'divineweed.club',
   url: 'https://divineweed.club',
@@ -20,6 +26,6 @@ export const SITE = {
     vercel: true,
   },
   form: {
-    endpoint: null,
+    endpoint: resolveContactEndpoint(),
   },
 };
