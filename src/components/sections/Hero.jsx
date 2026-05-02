@@ -4,6 +4,7 @@ import { Container } from '../layout/Container';
 import { useInView } from '../../lib/useInView';
 import { useSanityContent } from '../../lib/sanityContentContext';
 import { HeroSkeleton } from '../ui/SectionSkeleton';
+import { SITE } from '../../config/site';
 
 export function Hero() {
   const { homePage } = useSanityContent();
@@ -31,11 +32,19 @@ export function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-6">
-            <Button as="a" href="/#contact" variant="primary">
+            <Button
+              as="a"
+              href={SITE.booking.session}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="primary"
+            >
               {homePage.heroCtaBook}
             </Button>
             <a
-              href="/#contact"
+              href={SITE.booking.intro}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-baseline gap-2 text-ink-900 link-underline"
             >
               {homePage.heroCtaFree}

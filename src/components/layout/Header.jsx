@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ROUTES } from '../../config/routes';
+import { SITE } from '../../config/site';
 import { useScrollTrigger } from '../../lib/useScrollTrigger';
 import { Button } from '../ui/Button';
 import { Eyebrow } from '../ui/Eyebrow';
@@ -61,7 +62,13 @@ export function Header() {
 
           <div className="hidden items-center gap-5 md:flex">
             <LanguageSwitcher />
-            <Button as="a" href="/#contact" variant="primary">
+            <Button
+              as="a"
+              href={SITE.booking.session}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="primary"
+            >
               {t('header.cta.book')}
             </Button>
           </div>

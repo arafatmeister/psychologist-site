@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ROUTES } from '../../config/routes';
+import { SITE } from '../../config/site';
 import { Button } from '../ui/Button';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
@@ -128,7 +129,14 @@ export function MobileMenu({ isOpen, onClose, triggerRef }) {
           </nav>
 
           <div className="mt-auto pt-12">
-            <Button as="a" href="/#contact" className="w-full" onClick={onClose}>
+            <Button
+              as="a"
+              href={SITE.booking.session}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full"
+              onClick={onClose}
+            >
               {t('header.cta.book')}
             </Button>
           </div>

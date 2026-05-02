@@ -4,6 +4,7 @@ import { Container } from '../layout/Container';
 import { useInView } from '../../lib/useInView';
 import { useSanityContent } from '../../lib/sanityContentContext';
 import { CTASkeleton } from '../ui/SectionSkeleton';
+import { SITE } from '../../config/site';
 
 export function CTA() {
   const { homePage } = useSanityContent();
@@ -22,7 +23,15 @@ export function CTA() {
           «{homePage.ctaBody}»
         </p>
         <div className="mt-12">
-          <Button as="a" href="/#contact" variant="primary" invert className="px-10 py-4 text-base">
+          <Button
+            as="a"
+            href={SITE.booking.session}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="primary"
+            invert
+            className="px-10 py-4 text-base"
+          >
             {homePage.ctaButton}
             <span aria-hidden className="ml-2">
               →
